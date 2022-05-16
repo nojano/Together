@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Together">
         <activity
-            android:name=".loginick"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
