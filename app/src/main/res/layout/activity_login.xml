@@ -100,7 +100,7 @@
         android:layout_above="@id/socialicons"
         android:layout_centerHorizontal="true"
         android:text="or sign in with"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
 
     <LinearLayout
