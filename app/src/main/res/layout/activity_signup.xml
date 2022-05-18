@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="93dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/Logo"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView3"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Sign up"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/signupway"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="-7dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="how do you want to sign up?"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Google"
+        android:id="@+id/googlebuttonsignup"
+        style="?attr/materialButtonOutlinedStyle"
+        android:textColor="@color/white"
+        android:layout_below="@id/signupbuttonsignup"
+        android:layout_marginTop="29dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/facebookbuttonsignup"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/googlebuttonsignup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="Facebook"
+        android:textColor="@color/white" />
+
+    <Button
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/facebookbuttonsignup"
+        android:id="@+id/twitterbuttonsignup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="twitter"
+        android:textColor="@color/white" />
+
+    <Button
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signupway"
+        android:id="@+id/signupbuttonsignup"
+        android:layout_centerHorizontal="true"
+        android:text="creating an account"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/twitterbuttonsignup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/davide"
+        android:text="Back"
+        android:textSize="15dp" />
+
+</RelativeLayout>
