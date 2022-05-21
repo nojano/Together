@@ -11,8 +11,8 @@
         android:layout_width="100dp"
         android:layout_height="93dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/Logo"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/app_logo" />
 
     <TextView
         android:id="@+id/signup"
@@ -26,7 +26,7 @@
         android:gravity="center"
         android:text="Sign up"
         android:textColor="@color/white"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:textStyle="bold" />
 
     <TextView
@@ -41,7 +41,7 @@
         android:gravity="center"
         android:text="how do you want to sign up?"
         android:textColor="@color/white"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -97,6 +97,6 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/davide"
         android:text="Back"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
 </RelativeLayout>
