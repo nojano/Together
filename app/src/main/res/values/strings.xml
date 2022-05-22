@@ -1,4 +1,5 @@
 <resources>
+    <!-- List of Category -->
     <string name="app_name">Together</string>
     <string-array name="Category">
         <item>Football</item>
@@ -7,4 +8,19 @@
         <item>Orgy</item>
         <item>Music Band</item>
     </string-array>
+
+    <string name="logo">logo</string>
+    <string name="activity_new_post_create_a_new_post">Create a new post</string>
+    <string name="activity_new_post_step_1_choose_a_category">Step 1: Choose a category</string>
+    <string name="activity_new_post_step_2_add_title_and_description">Step 2: add Title and Description</string>
+    <string name="activity_new_post_title">Title</string>
+    <string name="activity_new_post_add_a_description">Add a description</string>
+    <string name="activity_new_post_step_3_add_more_info">Step 3: add more info</string>
+    <string name="activity_new_post_we_are_a_formed_group">We are a formed group</string>
+    <string name="activity_new_post_now_we_are_in">Now we are in</string>
+    <string name="activity_new_post_members_we_need">Members we need</string>
+    <string name="activity_new_post_load_photos">Load photos</string>
+    <string name="activity_new_post__0_photos_loaded">(0 photos loaded)</string>
+    <string name="activity_new_post_publish">Publish</string>
+
 </resources>
