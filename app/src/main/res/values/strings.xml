@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Together</string>
+    <string-array name="Category">
+        <item>Football</item>
+        <item>Chess</item>
+        <item>Study</item>
+        <item>Orgy</item>
+        <item>Music Band</item>
+    </string-array>
 </resources>

@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Together">
         <activity
+            android:name=".NewPostActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
