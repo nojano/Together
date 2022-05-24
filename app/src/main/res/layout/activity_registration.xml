@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="409dp"
-    android:layout_height="729dp"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
     tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp"
-    android:fillViewport="true">
+    tools:layout_editor_absoluteY="1dp">
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
 
 
         <TextView
@@ -86,6 +85,7 @@
             android:drawableLeft="@drawable/ic_baseline_mail_24"
             android:drawablePadding="20dp"
             android:hint="Email"
+            android:inputType="textEmailAddress"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
@@ -139,6 +139,7 @@
             android:drawableLeft="@drawable/ic_baseline_phone_24"
             android:drawablePadding="20dp"
             android:hint="Phone number (facultative)"
+            android:inputType="phone"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
@@ -172,20 +173,6 @@
             android:backgroundTint="@color/davide"
             android:text="Sign up"
             android:textSize="15sp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/backloginbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/telephonenumber"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_toEndOf="@id/signupbtn"
-            android:backgroundTint="@color/davide"
-            android:text="Back to login"
-            android:textSize="15sp" />
-
 
     </RelativeLayout>
 
