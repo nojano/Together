@@ -93,49 +93,4 @@
         android:text="Forgot password?"
         android:textColor="@color/white" />
 
-    <TextView
-        android:id="@+id/others"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/socialicons"
-        android:layout_centerHorizontal="true"
-        android:text="or sign in with"
-        android:textColor="@color/white" />
-
-
-    <LinearLayout
-        android:id="@+id/socialicons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/google" />
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/facebook" />
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/twitter" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="93dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/app_logo" />
-
 </RelativeLayout>
