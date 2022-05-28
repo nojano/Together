@@ -20,18 +20,18 @@
         android:padding="16dp">
         
         <ImageView
-            android:id="@+id/profilepic"
+            android:id="@+id/cardprofilepic"
             android:layout_width="100dp"
             android:layout_height="100dp"
             card_view:layout_constraintTop_toTopOf="parent"
             card_view:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
-            android:id="@+id/nickname"
+            android:id="@+id/cardnickname"
             android:layout_width="236dp"
             android:layout_height="wrap_content"
             card_view:layout_constraintBaseline_toTopOf="parent"
-            card_view:layout_constraintLeft_toRightOf="@+id/profilepic"
+            card_view:layout_constraintLeft_toRightOf="@+id/cardprofilepic"
             android:layout_marginStart="16dp"
             android:textSize="25sp"
             android:textColor="@color/white"/>
@@ -39,79 +39,79 @@
         <TextView
             android:layout_width="236dp"
             android:layout_height="wrap_content"
-            android:id="@+id/city"
+            android:id="@+id/cardcity"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/nickname"
-            card_view:layout_constraintLeft_toRightOf="@id/profilepic"
+            card_view:layout_constraintTop_toBottomOf="@id/cardnickname"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
             android:textSize="10sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="236dp"
             android:layout_height="wrap_content"
-            android:id="@+id/title"
+            android:id="@+id/cardtitle"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/city"
-            card_view:layout_constraintLeft_toRightOf="@id/profilepic"
+            card_view:layout_constraintTop_toBottomOf="@id/cardcity"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="236dp"
             android:layout_height="wrap_content"
-            android:id="@+id/description"
+            android:id="@+id/carddescription"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/title"
-            card_view:layout_constraintLeft_toRightOf="@id/profilepic"
+            card_view:layout_constraintTop_toBottomOf="@id/cardtitle"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textnumberavailable"
+            android:id="@+id/cardtextnumberavailable"
             android:text="available places:"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/description"
-            card_view:layout_constraintLeft_toRightOf="@id/profilepic"
+            card_view:layout_constraintTop_toBottomOf="@id/carddescription"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/numberavailable"
+            android:id="@+id/cardnumberavailable"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/description"
-            card_view:layout_constraintLeft_toRightOf="@id/textnumberavailable"
+            card_view:layout_constraintTop_toBottomOf="@id/carddescription"
+            card_view:layout_constraintLeft_toRightOf="@id/cardtextnumberavailable"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textmaxnumber"
+            android:id="@+id/cardtextmaxnumber"
             android:text="number of places:"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/textnumberavailable"
-            card_view:layout_constraintLeft_toRightOf="@id/profilepic"
+            card_view:layout_constraintTop_toBottomOf="@id/cardtextnumberavailable"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/maxplaces"
+            android:id="@+id/cardmaxplaces"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/textnumberavailable"
-            card_view:layout_constraintLeft_toRightOf="@id/textmaxnumber"
+            card_view:layout_constraintTop_toBottomOf="@id/cardtextnumberavailable"
+            card_view:layout_constraintLeft_toRightOf="@id/cardtextmaxnumber"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 
