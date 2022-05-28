@@ -8,19 +8,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.ViewHolder>() {
+
+    private var nicknames = arrayOf("davide", "gianmarco", "alessandro", "nick")
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapterHomepage.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_homepagecard, parent, false)
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapterHomepage.ViewHolder, position: Int) {
-        //it populates the card view of data
-        TODO("Not yet implemented")
+        holder.nickname.text = nicknames[position]
+
+
     }
 
     override fun getItemCount(): Int {
         //it will return the number of items that we pass to the viewholder
-        TODO("Not yet implemented")
+        return nicknames.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
