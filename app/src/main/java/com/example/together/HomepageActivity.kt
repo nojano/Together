@@ -4,27 +4,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class Homepage : AppCompatActivity() {
-
-    private var layoutManager: RecyclerView.LayoutManager? = null
+class HomepageActivity : AppCompatActivity() {
+    private var layoutmanager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapterHomepage.ViewHolder>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homepage)
+        val recyclerViewHomepage = findViewById<RecyclerView>(R.id.recyclerViewHomepage)
 
-        layoutManager = LinearLayoutManager(this)
-        RecyclerView.LayoutManager = layoutManager
+        layoutmanager = LinearLayoutManager(this)
+        recyclerViewHomepage.layoutManager = layoutmanager
 
         adapter = RecyclerAdapterHomepage()
-        RecyclerView.Adapter = adapter
+        recyclerViewHomepage.adapter = adapter
 
-
-
-        }
     }
-
-
+}
