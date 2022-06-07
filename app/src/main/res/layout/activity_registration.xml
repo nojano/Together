@@ -130,7 +130,7 @@
             android:id="@+id/telephonenumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/City"
+            android:layout_below="@id/city"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -145,7 +145,7 @@
             android:textColorHint="@color/white" />
 
         <EditText
-            android:id="@+id/City"
+            android:id="@+id/city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/repeatpassword"
@@ -162,7 +162,7 @@
             android:textColorHint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/signupbtn"
+            android:id="@+id/signupbtndone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/telephonenumber"
