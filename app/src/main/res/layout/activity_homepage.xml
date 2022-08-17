@@ -1,17 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomepageActivity"
-    >
+    tools:context=".HomepageActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHomepage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_width="414dp"
+        android:layout_height="327dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_log_succ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="You are logged in successfully"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewHomepage" />
+
+    <TextView
+        android:id="@+id/user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="User ID"
+        app:layout_constraintEnd_toEndOf="@+id/text_log_succ"
+        app:layout_constraintStart_toStartOf="@+id/text_log_succ"
+        app:layout_constraintTop_toBottomOf="@+id/text_log_succ" />
+
+    <TextView
+        android:id="@+id/user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Email"
+        app:layout_constraintEnd_toEndOf="@+id/text_log_succ"
+        app:layout_constraintStart_toStartOf="@+id/text_log_succ"
+        app:layout_constraintTop_toBottomOf="@+id/text_log_succ" />
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:backgroundTint="@color/davide"
+        android:text="Logout"
+        app:layout_constraintEnd_toEndOf="@+id/text_log_succ"
+        app:layout_constraintStart_toStartOf="@+id/text_log_succ"
+        app:layout_constraintTop_toBottomOf="@+id/text_log_succ" />
+
+    //TEST for sign-up and login
+
 
     //TODO finish the homepage layout
 </androidx.constraintlayout.widget.ConstraintLayout>
