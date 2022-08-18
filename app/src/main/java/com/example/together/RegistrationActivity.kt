@@ -1,5 +1,6 @@
 package com.example.together
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -73,6 +74,8 @@ class RegistrationActivity : AppCompatActivity() {
                                             "You are registered successfully",
                                             Toast.LENGTH_SHORT
                                         ).show()
+                                        Log.d(TAG, "createUserWithEmail:success")
+
 
                                         //User is registered and so logged in, we send him to the homepage
                                         val intent = Intent(
@@ -92,6 +95,8 @@ class RegistrationActivity : AppCompatActivity() {
                                             task.exception!!.message.toString(),
                                             Toast.LENGTH_SHORT
                                         ).show()
+                                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
+
                                     }
 
                                 }
