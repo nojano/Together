@@ -1,11 +1,12 @@
 package com.example.together
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -14,6 +15,7 @@ class HomepageActivity : AppCompatActivity() {
     private var layoutmanager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapterHomepage.ViewHolder>? = null
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homepage)
@@ -32,6 +34,11 @@ class HomepageActivity : AppCompatActivity() {
         btnLogout.setOnClickListener{
             //Logout from app
             FirebaseAuth.getInstance().signOut()
+            Toast.makeText(
+                this@HomepageActivity,
+                "You are now logged out",
+                Toast.LENGTH_SHORT
+            ).show()
             startActivity(Intent(this@HomepageActivity, MainActivity::class.java))
             finish()
         }
