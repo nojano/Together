@@ -34,5 +34,6 @@
     <string name="username_or_email_address">Username or email address</string>
     <string name="login">Login</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="submit">Submit</string>
 
 </resources>

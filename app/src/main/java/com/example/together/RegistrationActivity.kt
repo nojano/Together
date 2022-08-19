@@ -1,6 +1,5 @@
 package com.example.together
 
-//import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -83,25 +82,21 @@ class RegistrationActivity : AppCompatActivity() {
 
                                     val db = Firebase.firestore
 
-                                    // Add a new document with a generated ID
-                                    db.collection("users")
-                                        .add(user)
-                                        .addOnSuccessListener { documentReference ->
-                                            Log.d(
-                                                tag,
-                                                "DocumentSnapshot added with ID: ${documentReference.id}"
-                                            )
+                                    // Add a new document with the same ID of the firebase user ID
+                                    db.collection("users").document(firebaseUser.uid).set(user)
+                                        .addOnSuccessListener {
+                                            Log.d(tag, "DocumentSnapshot successfully written!")
                                         }
                                         .addOnFailureListener { e ->
                                             Log.w(tag, "Error adding document", e)
                                         }
+
                                     //User is registered and so logged in, we send him to the homepage
                                     val intent = Intent(
                                         this@RegistrationActivity,
                                         HomepageActivity::class.java
                                     )
-                                    intent.flags =
-                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", firebaseUser.uid)
                                     intent.putExtra("email", email)
                                     startActivity(intent)

@@ -22,6 +22,10 @@
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
         <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
