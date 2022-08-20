@@ -85,8 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/davide"
         android:text="Modify"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repeatpassword"
-        android:backgroundTint="@color/davide"/>
+        app:layout_constraintTop_toBottomOf="@+id/repeatpassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
