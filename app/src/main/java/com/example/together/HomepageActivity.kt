@@ -19,6 +19,9 @@ class HomepageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homepage)
+        setSupportActionBar(findViewById(R.id.my_toolbar))
+
+
 
         val tvUserId: TextView = findViewById(R.id.user_id)
         val tvUserEmail: TextView = findViewById(R.id.user_email)

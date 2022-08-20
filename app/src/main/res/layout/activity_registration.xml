@@ -184,7 +184,7 @@
             android:autofillHints=""
             android:inputType="text" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/signupbtndone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -193,6 +193,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/davide"
             android:text="@string/sign_up"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
