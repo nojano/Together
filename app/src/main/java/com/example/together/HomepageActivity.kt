@@ -4,12 +4,15 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class HomepageActivity : AppCompatActivity() {
     private var layoutmanager: RecyclerView.LayoutManager? = null
@@ -53,6 +56,24 @@ class HomepageActivity : AppCompatActivity() {
 
         adapter = RecyclerAdapterHomepage()
         recyclerViewHomepage.adapter = adapter
+
+        //Test per la Get dal database
+        val db = Firebase.firestore
+        val tag = "Test_get_database"
+        //Ritorna il documento associato all'uente loggato
+        val docRef = db.collection("users").document(userId.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    Log.d(tag, "DocumentSnapshot data: ${document.data}") //ritorna tutto il documento
+                    Log.d(tag, "DocumentSnapshot data: ${document.data?.getValue("username")}") //ritorna solo l'username
+                } else {
+                    Log.d(tag, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(tag, "get failed with ", exception)
+            }
 
     }
 }
