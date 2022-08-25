@@ -132,14 +132,14 @@
                 android:id="@+id/editTextTextPersonName3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:ems="10"
                 android:minHeight="48dp"
                 android:text="@string/activity_new_post_step_3_add_more_info"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/newPostCity" />
 
             <Switch
                 android:id="@+id/switch1"
@@ -190,34 +190,27 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="@string/activity_new_post_load_photos"
-                app:layout_constraintStart_toStartOf="@+id/textField"
-                app:layout_constraintTop_toBottomOf="@+id/textField" />
-
-            <TextView
-                android:id="@+id/editTextTextPersonName4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:minHeight="48dp"
-                android:text="@string/activity_new_post__0_photos_loaded"
-                android:textColor="#9E9E9E"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/button2"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-            <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp"
                 android:text="@string/activity_new_post_publish"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/spinner"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
+                app:layout_constraintTop_toBottomOf="@+id/textField" />
+
+            <EditText
+                android:id="@+id/newPostCity"
+                android:layout_width="332dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:inputType="textShortMessage"
+                android:text="City"
+                android:textSize="24dp"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
