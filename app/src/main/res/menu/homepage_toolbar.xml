@@ -2,12 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="search"
+    <item
         android:id="@+id/search"
+        android:icon="@drawable/ic_baseline_search_24"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_action_search"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+        android:title="search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
 
     <item android:id="@+id/action_settings"
         android:title="Settings"

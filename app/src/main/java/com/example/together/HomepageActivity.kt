@@ -2,7 +2,6 @@ package com.example.together
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -10,6 +9,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,15 +27,13 @@ class HomepageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_homepage)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-
         val tvUserId: TextView = findViewById(R.id.user_id)
         val tvUserEmail: TextView = findViewById(R.id.user_email)
         val btnLogout: Button = findViewById(R.id.button_logout)
 
         //TEST for sign-up and login
-        val userId = intent.getStringExtra("user_id")
-        val userEmail = intent.getStringExtra("email")
-
+        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email.toString()
         tvUserId.text = "User ID :: $userId"
         tvUserEmail.text = "email :: $userEmail"
 
@@ -63,7 +61,7 @@ class HomepageActivity : AppCompatActivity() {
         val db = Firebase.firestore
         val tag = "Test_get_database"
         //Ritorna il documento associato all'uente loggato
-        val docRef = db.collection("users").document(userId.toString())
+        val docRef = db.collection("users").document(userId)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
@@ -91,7 +89,6 @@ class HomepageActivity : AppCompatActivity() {
             startActivity(Intent(this@HomepageActivity, SettingsActivity::class.java))
             true
         }
-
         else -> {
             // If we got here, the user's action was not recognized.
             // Invoke the superclass to handle it.
@@ -103,7 +100,7 @@ class HomepageActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.homepage_toolbar, menu)
 
-        val searchItem = menu?.findItem(R.id.search)
+        val searchItem = menu.findItem(R.id.search)
         val searchView = searchItem?.actionView as SearchView
 
         return super.onCreateOptionsMenu(menu)

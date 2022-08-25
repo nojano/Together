@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,8 +63,6 @@ class MainActivity : AppCompatActivity() {
                                         HomepageActivity::class.java
                                     )
                                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                    intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-                                    intent.putExtra("email", email)
                                     startActivity(intent)
                                     finish()
                                 } else {
