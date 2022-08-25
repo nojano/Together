@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -27,12 +29,10 @@ class HomepageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_homepage)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        val tvUserId: TextView = findViewById(R.id.user_id)
+        //TEST for sign-up and login
+        /*val tvUserId: TextView = findViewById(R.id.user_id)
         val tvUserEmail: TextView = findViewById(R.id.user_email)
         val btnLogout: Button = findViewById(R.id.button_logout)
-
-        //TEST for sign-up and login
-        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
         val userEmail = FirebaseAuth.getInstance().currentUser?.email.toString()
         tvUserId.text = "User ID :: $userId"
         tvUserEmail.text = "email :: $userEmail"
@@ -45,9 +45,9 @@ class HomepageActivity : AppCompatActivity() {
                 "You are now logged out",
                 Toast.LENGTH_SHORT
             ).show()
-            startActivity(Intent(this@HomepageActivity, MainActivity::class.java))
+            startActivity(Intent(this@HomepageActivity, LoginActivity::class.java))
             finish()
-        }
+        }*/
 
         val recyclerViewHomepage = findViewById<RecyclerView>(R.id.recyclerViewHomepage)
 
@@ -57,9 +57,11 @@ class HomepageActivity : AppCompatActivity() {
         adapter = RecyclerAdapterHomepage()
         recyclerViewHomepage.adapter = adapter
 
+
         //Test per la Get dal database
         val db = Firebase.firestore
         val tag = "Test_get_database"
+        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
         //Ritorna il documento associato all'uente loggato
         val docRef = db.collection("users").document(userId)
         docRef.get()

@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homePageFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/home"/>
+    <item
+        android:id="@+id/my_groups"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_groups_24"
+        android:title="@string/my_groups"/>
+    <item
+        android:id="@+id/notifications"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="@string/notifications"/>
+    <item
+        android:id="@+id/myProfileFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/profile"/>
+</menu>

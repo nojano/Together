@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.together.HomePageFragment"
+        android:label="HomePageFragment" />
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.example.together.MyProfileFragment"
+        android:label="MyProfileFragment" />
+</navigation>
