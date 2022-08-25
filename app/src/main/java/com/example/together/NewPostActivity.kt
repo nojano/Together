@@ -2,10 +2,8 @@ package com.example.together
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.Switch
+import android.text.TextUtils
+import android.widget.*
 
 class NewPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,22 +11,85 @@ class NewPostActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_post)
 
         //Set the switch
-        val switch: Switch = findViewById(R.id.switch1)
+        val switch: Switch = findViewById(R.id.newPostGroupSwitch)
         startSwitchListener(
             switch,
-            findViewById(R.id.textField_edit_text),
-            findViewById(R.id.textField_edit_text_second)
+            findViewById(R.id.newPostNeededMembers),
+            findViewById(R.id.newPostMembersAlreadyIn)
         )
 
         //set the spinner
-        val categorySpinner: Spinner = findViewById(R.id.spinner)
+        val categorySpinner: Spinner = findViewById(R.id.newPostSpinnerCategory)
         setCategoryOnSpinner(categorySpinner, this)
+
+
+        val submitButton: Button = findViewById(R.id.newPostPublishButton)
+        submitButton.setOnClickListener {
+            if (checkPostForm(this@NewPostActivity, switch)) {
+                Toast.makeText(
+                    this@NewPostActivity,
+                    "Post published?----",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 }
 
 
+fun checkPostForm(postActivity: NewPostActivity, switch : Switch): Boolean {
+    when {
+        TextUtils.isEmpty(
+            postActivity.findViewById<EditText>(R.id.newPostTitle).text.toString()
+        ) -> {
+            Toast.makeText(
+                postActivity,
+                "Add Title",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
+
+        TextUtils.isEmpty(
+            postActivity.findViewById<EditText>(R.id.newPostDescription).text.toString()
+        ) -> {
+            Toast.makeText(
+                postActivity,
+                "Enter a short description",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
+
+        TextUtils.isEmpty(
+            postActivity.findViewById<EditText>(R.id.newPostCity).text.toString()
+        ) -> {
+            Toast.makeText(
+                postActivity,
+                "Enter the City ",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
+
+        postActivity.findViewById<Switch>(R.id.newPostGroupSwitch).isChecked -> {
+            if (postActivity.findViewById<EditText>(R.id.newPostMembersAlreadyIn).text.isEmpty() && postActivity.findViewById<EditText>(
+                    R.id.newPostNeededMembers
+                ).text.isEmpty()
+            ) {
+                Toast.makeText(
+                    postActivity,
+                    "You must fill out one member field at least",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return false
+            }
+        }
+    }
+    return true
+}
+
 fun setCategoryOnSpinner(spinner: Spinner, activity: NewPostActivity) {
-    //TODO: get Category from DB
     ArrayAdapter.createFromResource(
         activity,
         R.array.Category,
@@ -55,3 +116,4 @@ fun startSwitchListener(switch: Switch, edOne: EditText, edTwo: EditText) {
     switch.isChecked = true
     switch.isChecked = false
 }
+
