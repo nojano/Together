@@ -15,32 +15,53 @@ import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
-class Post constructor(category: String, title: String, description: String, city: String, ownerUser: String, partecipantUsers: MutableList<String>, neededMembers: String, membersAlreadyIn: String) {
+class Post(category: String, title: String, description: String, city: String, ownerUser: String, neededMembers: String, membersAlreadyIn: String) {
+    /*why spinner?*/
+    var ownerUser = ownerUser
+    var category = category
+    var title = title
+    var description = description
+    var city = city
+    var membersAlreadyIn = membersAlreadyIn
+    var neededMembers = neededMembers
 
 }
 
-fun publishPost(db: FirebaseFirestore, user : FirebaseUser, postActivity : NewPostActivity){ //firebaseuser user.uid is the string
-    val spinner = postActivity.findViewById(R.id.newPostSpinnerCategory) as Spinner
+fun fillPost(postActivity: NewPostActivity,user : FirebaseUser):Post {
+    val spinner = postActivity.findViewById<EditText>(R.id.newPostSpinnerCategory) as Spinner
     val category = spinner.selectedItem.toString()
     val title = postActivity.findViewById<EditText>(R.id.newPostTitle).text.toString()
     val description = postActivity.findViewById<EditText>(R.id.newPostDescription).text.toString()
     val city = postActivity.findViewById<EditText>(R.id.newPostCity).text.toString()
     val membersAlreadyIn = postActivity.findViewById<EditText>(R.id.newPostMembersAlreadyIn).text.toString()
     val neededMembers = postActivity.findViewById<EditText>(R.id.newPostNeededMembers).text.toString()
-    val userID = user.uid
-    val partecipantUsers = mutableListOf<String>()
-    var newPost = Post(category, title, description, city, userID, partecipantUsers, neededMembers, membersAlreadyIn)
-    var newpostdue = HashPost(category, title, description, city, userID, partecipantUsers)
+    return Post(category,title,description,city,user.uid, membersAlreadyIn, neededMembers)
+}
 
-/*
-    db.collection("Post").document(newPost)
-        .set(newPost, SetOptions.merge())
-        .addOnSuccessListener { Log.d("Post_Class", "DocumentSnapshot successfully written!") }
-        .addOnFailureListener { e -> Log.w("Post_Class", "Error writing document", e) }
-*/
+fun HashPost(post : Post) : HashMap<String, String> {
+    return hashMapOf<String, String>(
+        "OwnerUser" to post.ownerUser,
+        "Category" to post.category,
+        "Title" to post.title,
+        "City" to post.city,
+        "Description" to post.description,
+        "MembersAlreadyIn" to post.membersAlreadyIn,
+        "NeededMembers" to post.neededMembers,
+        "date" to DateTimeFormatter
+            .ofPattern("yyyy-MM-dd HH:mm:ss")
+            .withZone(ZoneOffset.UTC)
+            .format(Instant.now()).toString()
+        //"Partecipant Users" to partecipantUsers.toString()
+    )
+}
 
+
+
+fun publishPost(db: FirebaseFirestore, post: Post){ //firebaseuser user.uid is the string
+
+    var hashedPost = HashPost(post)
     db.collection("Post")
-        .add(newPost)
+        .add(hashedPost)
         .addOnSuccessListener { documentReference ->
             Log.d("Post_Class", "DocumentSnapshot added with ID: ${documentReference.id}")
         }
@@ -49,17 +70,3 @@ fun publishPost(db: FirebaseFirestore, user : FirebaseUser, postActivity : NewPo
         }
 }
 
-fun HashPost(category: String, title: String, description: String, city: String, ownerUser: String, partecipantUsers: MutableList<String>) : HashMap<String, String> {
-    return hashMapOf<String, String>(
-        "OwnerUser" to ownerUser,
-        "Category" to category,
-        "Title" to title,
-        "City" to city,
-        "Description" to description,
-        "dateExample" to DateTimeFormatter
-            .ofPattern("yyyy-MM-dd HH:mm:ss")
-            .withZone(ZoneOffset.UTC)
-            .format(Instant.now()).toString()
-        //"Partecipant Users" to partecipantUsers.toString()
-        )
-}
