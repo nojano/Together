@@ -32,14 +32,21 @@ class NewPostActivity : AppCompatActivity() {
         val submitButton: Button = findViewById(R.id.newPostPublishButton)
         submitButton.setOnClickListener {
             if (checkPostForm(this@NewPostActivity)) {
-                val post = fillPost(this@NewPostActivity, FirebaseAuth.getInstance().currentUser)
-                val a = publishPost(db, post)
-
-                Toast.makeText(
-                    this@NewPostActivity,
-                    "Post Published",
-                    Toast.LENGTH_SHORT
-                ).show()
+                val post = fillPost(this@NewPostActivity)
+                if (publishPost(db, post)) {
+                    Toast.makeText(
+                        this@NewPostActivity,
+                        "Post Published",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                else {
+                    Toast.makeText(
+                        this@NewPostActivity,
+                        "Unable to publish post",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }
