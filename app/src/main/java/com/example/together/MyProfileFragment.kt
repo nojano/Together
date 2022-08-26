@@ -34,6 +34,20 @@ class MyProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        //Setup the toolbar
+        binding.toolbar.inflateMenu(R.menu.homepage_toolbar)
+
+        //Disabling search item
+        val searchItem = binding.toolbar.menu.findItem(R.id.search)
+        searchItem.isVisible = false
+        //Disabling settings menu
+        val settingsItem = binding.toolbar.menu.findItem(R.id.action_settings)
+        settingsItem.isVisible = false
+        //Disabling add post item
+        val addItem = binding.toolbar.menu.findItem(R.id.add)
+        addItem.isVisible = false
+
+
         val tvUserNameSurname = binding.namesurname
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
 
@@ -55,9 +69,9 @@ class MyProfileFragment : Fragment() {
                 Log.d(tag, "get failed with ", exception)
             }
 
+        //Logout from the application
         val btnLogout = binding.logoutbtn
         btnLogout.setOnClickListener {
-            //Logout from app
             FirebaseAuth.getInstance().signOut()
             Toast.makeText(
                 this.requireActivity(),
