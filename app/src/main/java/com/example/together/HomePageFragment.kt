@@ -4,7 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.together.databinding.FragmentHomePageBinding
@@ -21,7 +26,7 @@ class HomePageFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+        //setHasOptionsMenu(true)
 
 
     }
@@ -43,36 +48,25 @@ class HomePageFragment : Fragment() {
         adapter = RecyclerAdapterHomepage()
         recyclerViewHomepage.adapter = adapter
 
+        //Setup the toolbar
+        binding.toolbar.inflateMenu(R.menu.homepage_toolbar)
+
+        //Handle actions of toolbar items
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_settings -> {
+                    startActivity(Intent(activity, SettingsActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    //Handle actions of toolbar items
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_settings -> {
-            startActivity(Intent(this.requireActivity(), SettingsActivity::class.java))
-            true
-        }
-        else -> {
-            // If we got here, the user's action was not recognized.
-            // Invoke the superclass to handle it.
-            super.onOptionsItemSelected(item)
-        }
-    }
-
-    //Display the items of the toolbar
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        //inflater.inflate(R.menu.layout_menu, menu)
-        inflater.inflate(R.menu.homepage_toolbar, menu)
-
-        val searchItem = menu.findItem(R.id.search)
-        val searchView = searchItem?.actionView as SearchView
-
-        //return super.onCreateOptionsMenu(menu)
-
     }
 
 

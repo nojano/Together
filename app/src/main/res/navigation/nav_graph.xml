@@ -7,9 +7,9 @@
     <fragment
         android:id="@+id/homePageFragment"
         android:name="com.example.together.HomePageFragment"
-        android:label="HomePageFragment" />
+        android:label="HomePage" />
     <fragment
         android:id="@+id/myProfileFragment"
         android:name="com.example.together.MyProfileFragment"
-        android:label="MyProfileFragment" />
+        android:label="MyProfile" />
 </navigation>

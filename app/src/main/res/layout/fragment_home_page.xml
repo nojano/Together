@@ -35,10 +35,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:menu="@menu/homepage_toolbar"
             app:title="Together" />
         <!--app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"-->
-
+        <!--app:menu="@menu/homepage_toolbar"-->
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -52,6 +51,4 @@
         app:layout_constraintTop_toBottomOf="@+id/my_appbar" />
 
 
-
-    <!--TODO finish the homepage layout-->
 </androidx.constraintlayout.widget.ConstraintLayout>

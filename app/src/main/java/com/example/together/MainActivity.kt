@@ -3,7 +3,6 @@ package com.example.together
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -28,6 +27,7 @@ class MainActivity: AppCompatActivity() {
         // Make sure actions in the ActionBar get propagated to the NavController
         //setupActionBarWithNavController(navController)
 
+        //Bottom bar setup
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
 
