@@ -17,10 +17,7 @@
             android:name=".MainActivity"
             android:exported="false"
             android:windowSoftInputMode="stateHidden"/>
-        <activity
-            android:name=".HomepageActivity"
-            android:exported="false"
-            android:windowSoftInputMode="stateHidden"/>
+
         <activity
             android:name=".NewPostActivity"
             android:exported="false"
@@ -40,12 +37,12 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:parentActivityName="com.example.together.HomepageActivity" >
+            android:parentActivityName="com.example.together.MainActivity" >
 
         <!-- Parent activity meta-data to support 4.0 and lower -->
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.together.HomepageActivity"/>
+            android:value="com.example.together.MainActivity"/>
         </activity>
 
     </application>

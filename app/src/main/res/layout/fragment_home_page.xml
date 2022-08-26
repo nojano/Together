@@ -17,7 +17,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomepageActivity">
+    tools:context=".HomePageFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/my_appbar"
@@ -36,7 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:title="Together" />
-        <!--app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"-->
         <!--app:menu="@menu/homepage_toolbar"-->
     </com.google.android.material.appbar.AppBarLayout>
 
