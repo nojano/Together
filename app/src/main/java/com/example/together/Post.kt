@@ -16,7 +16,6 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 class Post(category: String, title: String, description: String, city: String, ownerUser: String, neededMembers: String, membersAlreadyIn: String) {
-    /*why spinner?*/
     var ownerUser = ownerUser
     var category = category
     var title = title
