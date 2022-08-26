@@ -1,9 +1,10 @@
 package com.example.together
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+
 
 class NewPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +26,7 @@ class NewPostActivity : AppCompatActivity() {
 
         val submitButton: Button = findViewById(R.id.newPostPublishButton)
         submitButton.setOnClickListener {
-            if (checkPostForm(this@NewPostActivity, switch)) {
+            if (checkPostForm(this@NewPostActivity)) {
                 Toast.makeText(
                     this@NewPostActivity,
                     "Post published?----",
@@ -37,7 +38,7 @@ class NewPostActivity : AppCompatActivity() {
 }
 
 
-fun checkPostForm(postActivity: NewPostActivity, switch : Switch): Boolean {
+fun checkPostForm(postActivity: NewPostActivity): Boolean {
     when {
         TextUtils.isEmpty(
             postActivity.findViewById<EditText>(R.id.newPostTitle).text.toString()
@@ -115,5 +116,10 @@ fun startSwitchListener(switch: Switch, edOne: EditText, edTwo: EditText) {
     }
     switch.isChecked = true
     switch.isChecked = false
+}
+
+fun getCategory(postActivity: NewPostActivity) : String{
+    val spinner = postActivity.findViewById(R.id.newPostSpinnerCategory) as Spinner
+    return spinner.selectedItem.toString()
 }
 

@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                                     //User is logged in, we send him to the homepage
                                     val intent = Intent(
                                         this@MainActivity,
-                                        HomepageActivity::class.java
+                                        NewPostActivity::class.java
                                     )
                                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
