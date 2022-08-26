@@ -1,9 +1,13 @@
 package com.example.together
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 
 class NewPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,21 +27,33 @@ class NewPostActivity : AppCompatActivity() {
         setCategoryOnSpinner(categorySpinner, this)
 
 
+        val db = Firebase.firestore
+
         val submitButton: Button = findViewById(R.id.newPostPublishButton)
         submitButton.setOnClickListener {
-            if (checkPostForm(this@NewPostActivity, switch)) {
-                Toast.makeText(
-                    this@NewPostActivity,
-                    "Post published?----",
-                    Toast.LENGTH_SHORT
-                ).show()
+            if (checkPostForm(this@NewPostActivity)) {
+                val post = fillPost(this@NewPostActivity)
+                if (publishPost(db, post)) {
+                    Toast.makeText(
+                        this@NewPostActivity,
+                        "Post Published",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                else {
+                    Toast.makeText(
+                        this@NewPostActivity,
+                        "Unable to publish post",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }
 }
 
 
-fun checkPostForm(postActivity: NewPostActivity, switch : Switch): Boolean {
+fun checkPostForm(postActivity: NewPostActivity): Boolean {
     when {
         TextUtils.isEmpty(
             postActivity.findViewById<EditText>(R.id.newPostTitle).text.toString()
