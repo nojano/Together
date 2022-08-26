@@ -29,25 +29,6 @@ class HomepageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_homepage)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        //TEST for sign-up and login
-        /*val tvUserId: TextView = findViewById(R.id.user_id)
-        val tvUserEmail: TextView = findViewById(R.id.user_email)
-        val btnLogout: Button = findViewById(R.id.button_logout)
-        val userEmail = FirebaseAuth.getInstance().currentUser?.email.toString()
-        tvUserId.text = "User ID :: $userId"
-        tvUserEmail.text = "email :: $userEmail"
-
-        btnLogout.setOnClickListener {
-            //Logout from app
-            FirebaseAuth.getInstance().signOut()
-            Toast.makeText(
-                this@HomepageActivity,
-                "You are now logged out",
-                Toast.LENGTH_SHORT
-            ).show()
-            startActivity(Intent(this@HomepageActivity, LoginActivity::class.java))
-            finish()
-        }*/
 
         val recyclerViewHomepage = findViewById<RecyclerView>(R.id.recyclerViewHomepage)
 
@@ -57,31 +38,6 @@ class HomepageActivity : AppCompatActivity() {
         adapter = RecyclerAdapterHomepage()
         recyclerViewHomepage.adapter = adapter
 
-
-        //Test per la Get dal database
-        val db = Firebase.firestore
-        val tag = "Test_get_database"
-        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        //Ritorna il documento associato all'uente loggato
-        val docRef = db.collection("users").document(userId)
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Log.d(
-                        tag,
-                        "DocumentSnapshot data: ${document.data}"
-                    ) //ritorna tutto il documento
-                    Log.d(
-                        tag,
-                        "DocumentSnapshot data: ${document.data?.getValue("username")}"
-                    ) //ritorna solo l'username
-                } else {
-                    Log.d(tag, "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d(tag, "get failed with ", exception)
-            }
 
     }
 

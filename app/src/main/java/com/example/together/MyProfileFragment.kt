@@ -2,6 +2,7 @@ package com.example.together
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.together.databinding.FragmentMyProfileBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class MyProfileFragment : Fragment() {
@@ -31,10 +34,27 @@ class MyProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //toDelete
+
         val tvUserNameSurname = binding.namesurname
-        val userNameSurname = FirebaseAuth.getInstance().currentUser?.email.toString()
-        tvUserNameSurname.text = userNameSurname
+        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+
+        //Get dal database dei dati utente
+        val db = Firebase.firestore
+        val tag = "Test_get_database"
+
+        //Ritorna il documento associato all'uente loggato
+        val docRef = db.collection("users").document(userId)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    tvUserNameSurname.text = document.data?.getValue("nameAndSurname").toString()
+                } else {
+                    Log.d(tag, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(tag, "get failed with ", exception)
+            }
 
         val btnLogout = binding.logoutbtn
         btnLogout.setOnClickListener {
