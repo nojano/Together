@@ -23,10 +23,9 @@ class Post(category: String, title: String, description: String, city: String, o
     var city = city
     var membersAlreadyIn = membersAlreadyIn
     var neededMembers = neededMembers
-
 }
 
-fun fillPost(postActivity: NewPostActivity,user : FirebaseUser):Post {
+fun fillPost(postActivity: NewPostActivity,user : FirebaseUser?):Post {
     val spinner = postActivity.findViewById<EditText>(R.id.newPostSpinnerCategory) as Spinner
     val category = spinner.selectedItem.toString()
     val title = postActivity.findViewById<EditText>(R.id.newPostTitle).text.toString()
@@ -34,10 +33,10 @@ fun fillPost(postActivity: NewPostActivity,user : FirebaseUser):Post {
     val city = postActivity.findViewById<EditText>(R.id.newPostCity).text.toString()
     val membersAlreadyIn = postActivity.findViewById<EditText>(R.id.newPostMembersAlreadyIn).text.toString()
     val neededMembers = postActivity.findViewById<EditText>(R.id.newPostNeededMembers).text.toString()
-    return Post(category,title,description,city,user.uid, membersAlreadyIn, neededMembers)
+    return Post(category,title,description,city, user!!.uid, membersAlreadyIn, neededMembers)
 }
 
-fun HashPost(post : Post) : HashMap<String, String> {
+fun hashPost(post : Post) : HashMap<String, String> {
     return hashMapOf<String, String>(
         "OwnerUser" to post.ownerUser,
         "Category" to post.category,
@@ -56,9 +55,9 @@ fun HashPost(post : Post) : HashMap<String, String> {
 
 
 
-fun publishPost(db: FirebaseFirestore, post: Post){ //firebaseuser user.uid is the string
+fun publishPost(db: FirebaseFirestore, post: Post){
 
-    var hashedPost = HashPost(post)
+    val hashedPost = hashPost(post)
     db.collection("Post")
         .add(hashedPost)
         .addOnSuccessListener { documentReference ->

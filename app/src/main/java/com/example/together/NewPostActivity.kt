@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class NewPostActivity : AppCompatActivity() {
@@ -24,12 +27,17 @@ class NewPostActivity : AppCompatActivity() {
         setCategoryOnSpinner(categorySpinner, this)
 
 
+        val db = Firebase.firestore
+
         val submitButton: Button = findViewById(R.id.newPostPublishButton)
         submitButton.setOnClickListener {
             if (checkPostForm(this@NewPostActivity)) {
+                val post = fillPost(this@NewPostActivity, FirebaseAuth.getInstance().currentUser)
+                val a = publishPost(db, post)
+
                 Toast.makeText(
                     this@NewPostActivity,
-                    "Post published?----",
+                    "Post Published",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -116,10 +124,5 @@ fun startSwitchListener(switch: Switch, edOne: EditText, edTwo: EditText) {
     }
     switch.isChecked = true
     switch.isChecked = false
-}
-
-fun getCategory(postActivity: NewPostActivity) : String{
-    val spinner = postActivity.findViewById(R.id.newPostSpinnerCategory) as Spinner
-    return spinner.selectedItem.toString()
 }
 
