@@ -22,6 +22,26 @@
             android:autofillHints="Add More Information"
             android:background="@drawable/background">
 
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/my_appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="Together" />
+                <!--app:menu="@menu/homepage_toolbar"-->
+            </com.google.android.material.appbar.AppBarLayout>
+
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="67dp"
@@ -30,8 +50,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/my_appbar"
+                app:layout_constraintVertical_bias="0.011"
                 app:srcCompat="@drawable/app_logo" />
 
             <TextView
@@ -43,7 +63,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/divider3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_appbar"
                 app:layout_constraintVertical_bias="1.0" />
 
             <View
@@ -208,7 +228,7 @@
                 android:background="@color/white"
                 android:inputType="textShortMessage"
                 android:hint="City"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/newPostDescription"
                 app:layout_constraintTop_toBottomOf="@+id/newPostDescription" />
 

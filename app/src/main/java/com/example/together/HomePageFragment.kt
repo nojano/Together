@@ -52,10 +52,10 @@ class HomePageFragment : Fragment() {
                     startActivity(Intent(activity, SettingsActivity::class.java))
                     true
                 }
-                /*R.id.add -> {
+                R.id.add -> {
                     startActivity(Intent(activity, NewPostActivity::class.java))
                     true
-                }*/
+                }
                 else -> false
             }
         }
