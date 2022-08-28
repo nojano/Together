@@ -14,7 +14,7 @@
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="Settings"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom|collapseActionView" />
 
     <item
         android:id="@+id/add"
