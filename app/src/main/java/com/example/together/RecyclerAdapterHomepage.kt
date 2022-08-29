@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.ViewHolder>() {
 
-    private var nicknames = arrayOf("davide", "gianmarco", "alessandro", "nick")
+    private var nicknames = arrayOf("davide","gianmarco")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapterHomepage.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_homepagecard, parent, false)

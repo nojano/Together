@@ -24,7 +24,6 @@ class LoginActivity : AppCompatActivity() {
 
         val loginButton:Button = findViewById(R.id.loginbtn)
         loginButton.setOnClickListener {
-
             when {
                 TextUtils.isEmpty(
                     findViewById<EditText>(R.id.username).text.toString().trim { it <= ' ' }) -> {

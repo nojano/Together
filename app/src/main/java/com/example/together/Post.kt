@@ -51,12 +51,29 @@ fun publishPost(db: FirebaseFirestore, post: Post) : Boolean{
     db.collection("post")
         .add(hashedPost)
         .addOnSuccessListener { documentReference ->
-            Log.d("Post_Class", "DocumentSnapshot added with ID: ${documentReference.id}")
+            Log.d("post_Class", "DocumentSnapshot added with ID: ${documentReference.id}")
         }
         .addOnFailureListener { e ->
-            Log.w("Post_Class", "Error adding document (newPost)", e)
+            Log.w("post_Class", "Error adding document (newPost)", e)
             success= false
         }
     return success
 }
+
+fun getPost() {
+    var db = FirebaseFirestore.getInstance()
+    var res = mutableListOf<Post>()
+    var a = db.collection("post").get().addOnSuccessListener { documents ->
+        for (document in documents) {
+            Log.d("post._Class", "${document.id} => ${document.data}")
+            var a = document.data
+        }
+    }
+        .addOnFailureListener { exception ->
+            Log.w("post_Class", "Error getting documents: ", exception)
+        }.toString()
+    return
+}
+
+
 
