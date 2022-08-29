@@ -40,12 +40,20 @@ class MyProfileFragment : Fragment() {
         //Disabling search item
         val searchItem = binding.toolbar.menu.findItem(R.id.search)
         searchItem.isVisible = false
-        //Disabling settings menu
-        val settingsItem = binding.toolbar.menu.findItem(R.id.action_settings)
-        settingsItem.isVisible = false
         //Disabling add post item
         val addItem = binding.toolbar.menu.findItem(R.id.add)
         addItem.isVisible = false
+
+        //Handle actions of toolbar items
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_settings -> {
+                    startActivity(Intent(activity, SettingsActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
 
 
         val tvUserNameSurname = binding.namesurname

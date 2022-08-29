@@ -1,6 +1,9 @@
 package com.example.together
 
 import android.os.Bundle
+import android.view.KeyEvent
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -36,4 +39,16 @@ class MainActivity: AppCompatActivity() {
 
 
 
+}
+
+//Start a Listener which push a button when enter key is pressed on a specific EditText
+//TODO move this tool function in a more generic class
+fun startEnterKeyListener(editText: EditText, button : Button){
+    editText.setOnKeyListener { _, keyCode, event ->
+        if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+            //Perform Code
+            button.performClick()
+        }
+        false
+    }
 }

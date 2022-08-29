@@ -19,6 +19,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //used for enter key listener
+        val passwordEditText = findViewById<EditText>(R.id.password)
+
         val loginButton:Button = findViewById(R.id.loginbtn)
         loginButton.setOnClickListener {
 
@@ -48,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                     val email: String =
                         findViewById<EditText>(R.id.username).text.toString().trim { it <= ' ' }
                     val password: String =
-                        findViewById<EditText>(R.id.password).text.toString().trim { it <= ' ' }
+                        passwordEditText.text.toString().trim { it <= ' ' }
                     //Login user with email and password
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener{ task ->
@@ -94,5 +97,8 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
             startActivity(intent)
         }
+
+        //start te Listener for the EnterKey on the password field
+        startEnterKeyListener(findViewById<EditText>(R.id.password), loginButton)
     }
 }
