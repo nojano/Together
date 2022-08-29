@@ -89,4 +89,3 @@ class Created_Groups : Fragment() {
     }
 }
 
-}
