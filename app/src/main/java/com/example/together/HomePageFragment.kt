@@ -46,8 +46,8 @@ class HomePageFragment : Fragment() {
         binding.toolbar.inflateMenu(R.menu.homepage_toolbar)
 
         //Disabling settings menu
-        val settingsItem = binding.toolbar.menu.findItem(R.id.action_settings)
-        settingsItem.isVisible = false
+        //val settingsItem = binding.toolbar.menu.findItem(R.id.action_settings)
+        //settingsItem.isVisible = false
 
         //Handle actions of toolbar items
         binding.toolbar.setOnMenuItemClickListener {

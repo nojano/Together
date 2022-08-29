@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <Preference
+        app:key="email"
+        app:title="Your Email:"
+        app:summary=""
+        app:icon="@drawable/ic_baseline_mail_24" />
+
+    <Preference
+        app:key="password"
+        app:title="Password"
+        app:summary="Manage your password"
+        app:icon="@drawable/ic_baseline_lock_24" />
+
+    <Preference
+        app:key="logout"
+        app:title="Logout"
+        app:summary="Logout from the application"
+        app:icon="@drawable/ic_baseline_logout_24" />
+
+</PreferenceScreen>

@@ -43,14 +43,17 @@ class MyProfileFragment : Fragment() {
         //Disabling add post item
         val addItem = binding.toolbar.menu.findItem(R.id.add)
         addItem.isVisible = false
+        //Disabling settings menu
+        val settingsItem = binding.toolbar.menu.findItem(R.id.action_settings)
+        settingsItem.isVisible = false
 
         //Handle actions of toolbar items
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.action_settings -> {
+                /*R.id.action_settings -> {
                     startActivity(Intent(activity, SettingsActivity::class.java))
                     true
-                }
+                }*/
                 else -> false
             }
         }
