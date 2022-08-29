@@ -31,18 +31,12 @@
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/activity_registration.xml" value="0.33" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/activity_settings.xml" value="0.32592592592592595" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/activity_userpage.xml" value="0.32592592592592595" />
-        <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/fragment_blank.xml" value="0.25905797101449274" />
-        <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/fragment_created__groups.xml" value="0.25905797101449274" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/fragment_home_page.xml" value="0.307518115942029" />
-        <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/fragment_joined__groups.xml" value="0.25905797101449274" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/fragment_my_profile.xml" value="0.307518115942029" />
-        <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/layout/preferences_category_email.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.365625" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/menu/homepage.xml" value="0.33" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/menu/homepage_toolbar.xml" value="0.3625" />
         <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/menu/settings.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/alexe/AndroidStudioProjects/Together/app/src/main/res/xml/preferences.xml" value="0.365625" />
         <entry key="..\:/Users/muser/AndroidStudioProjects/Together/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.26" />
         <entry key="..\:/Users/muser/AndroidStudioProjects/Together/app/src/main/res/layout/activity_homepage.xml" value="0.1" />
         <entry key="..\:/Users/muser/AndroidStudioProjects/Together/app/src/main/res/layout/activity_homepagecard.xml" value="0.2296195652173913" />
@@ -61,6 +55,26 @@
         <entry key="..\:/Users/muser/AndroidStudioProjects/Together/app/src/main/res/layout/my_profile.xml" value="0.2296195652173913" />
         <entry key="..\:/Users/muser/AndroidStudioProjects/Together/app/src/main/res/layout/notification_request.xml" value="0.2296195652173913" />
         <entry key="..\:/Users/muser/AndroidStudioProjects/Together/app/src/main/res/layout/userpage.xml" value="0.2296195652173913" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_card_mygroups.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_created_groups_card.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_groups.xml" value="0.20427350427350427" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_groupscard.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_homepagecard.xml" value="0.1" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_joined_groups_card.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_main.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_myposts.xml" value="0.2" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_new_post.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_registration.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/activity_userpage.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/fragment__joined_groups.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/fragment_created__groups.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/fragment_home_page.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/fragment_joined__groups.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/fragment_joinedgroups.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/fragment_joinedgroups2.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/fragment_my_profile.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/joinedgroups_fragment.xml" value="0.11441256830601093" />
+        <entry key="..\:/Users/nicol/Documents/Together/app/src/main/res/layout/mygroups_fragment.xml" value="0.15172101449275363" />
       </map>
     </option>
   </component>
