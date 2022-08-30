@@ -51,35 +51,7 @@ class Created_Groups : Fragment() {
             }
         }
 
-        val tvtitle = binding.title
-        val tvcity = binding.city
-        val tvcategory = binding.category
-        val tvdescription = binding.description
-        val tvmembersAlreadyIn = binding.cardnumberavailable
-        val tvNeededMembers = binding.cardmaxplaces
 
-        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-
-        val db = Firebase.firestore
-        val tag = "Test_get_database"
-
-        val docRef = db.collection("users").document(userId)
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    tvtitle.text = document.data?.getValue("title").toString()
-                    tvcity.text = document.data?.getValue("city").toString()
-                    tvcategory.text = document.data?.getValue("category").toString()
-                    tvdescription.text = document.data?.getValue("description").toString()
-                    tvmembersAlreadyIn.text = document.data?.getValue("MembersAlreadyIn").toString()
-                    tvNeededMembers.text = document.data?.getValue("NeededMembers").toString()
-                } else {
-                    Log.d(tag, "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d(tag, "get failed with ", exception)
-            }
 
         fun onDestroyView() {
             super.onDestroyView()

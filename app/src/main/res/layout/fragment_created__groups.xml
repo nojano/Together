@@ -1,141 +1,53 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardBackgroundColor="@color/davide"
-    card_view:cardElevation="3dp"
-    card_view:contentPadding="4dp"
-    android:id="@+id/joinedgroupcard">
+    android:layout_height="match_parent"
+    tools:context=".HomePageFragment">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/joinedgrouprelativelayout"
-        android:layout_width="391dp"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
-        android:layout_height="264dp"
-        android:padding="16dp">
+</FrameLayout>-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePageFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/my_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            card_view:layout_constraintBaseline_toTopOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/my_appbar" />
-
-        <TextView
-            android:id="@+id/category"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            card_view:layout_constraintTop_toBottomOf="@id/title" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintTop_toBottomOf="@id/category" />
-
-        <TextView
-            android:id="@+id/city"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintTop_toBottomOf="@id/description" />
-
-        <TextView
-            android:id="@+id/owneruser"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintTop_toBottomOf="@id/description" />
-
-
-        <TextView
-            android:id="@+id/NeededMembers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="NeededMembers"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintTop_toBottomOf="@id/MembersAlreadyIn" />
-
-        <TextView
-            android:id="@+id/cardnumberavailable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintLeft_toRightOf="@id/MembersAlreadyIn"
-            card_view:layout_constraintTop_toBottomOf="@id/owneruser" />
-
-        <TextView
-            android:id="@+id/MembersAlreadyIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="MembersAlreadyIn:"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintTop_toBottomOf="@id/owneruser" />
-
-        <TextView
-            android:id="@+id/cardmaxplaces"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintLeft_toRightOf="@id/NeededMembers"
-            card_view:layout_constraintTop_toBottomOf="@id/cardnumberavailable" />
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/my_appbar"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Together" />
+        <!--app:menu="@menu/homepage_toolbar"-->
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                style="@style/Widget.MaterialComponents.Toolbar.Primary"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:title="Together" />
-            <!--app:menu="@menu/homepage_toolbar"-->
-        </com.google.android.material.appbar.AppBarLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHomepage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_appbar" />
 
-</androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.together">
 
     <application
@@ -9,6 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Together">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/app_logo" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/davide" />
+
         <activity
             android:name=".RegistrationActivity"
             android:exported="false"
@@ -33,6 +44,7 @@
             android:name=".ForgotPasswordActivity"
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -51,6 +63,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.together.MainActivity"/>
         </activity>
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
     </application>
 
