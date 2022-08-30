@@ -80,18 +80,6 @@ class MyProfileFragment : Fragment() {
                 Log.d(tag, "get failed with ", exception)
             }
 
-        //Logout from the application
-        val btnLogout = binding.logoutbtn
-        btnLogout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            Toast.makeText(
-                this.requireActivity(),
-                "You are now logged out",
-                Toast.LENGTH_SHORT
-            ).show()
-            startActivity(Intent(activity, LoginActivity::class.java))
-            activity?.finish()
-        }
     }
 
     override fun onDestroyView() {

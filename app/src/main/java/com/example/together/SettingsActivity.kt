@@ -1,6 +1,8 @@
 package com.example.together
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -29,5 +31,21 @@ class MySettingsFragment : PreferenceFragmentCompat() {
         val userEmail = FirebaseAuth.getInstance().currentUser?.email.toString()
         val emailPreference: Preference? = findPreference("email")
         emailPreference?.summary = userEmail
+
+        val logoutPreference: Preference? = findPreference("logout")
+        logoutPreference?.setOnPreferenceClickListener {
+            FirebaseAuth.getInstance().signOut()
+            Toast.makeText(
+                this.requireActivity(),
+                "You are now logged out",
+                Toast.LENGTH_SHORT
+            ).show()
+            startActivity(Intent(activity, LoginActivity::class.java))
+            activity?.finish()
+            true
+        }
+
+
+
     }
 }
