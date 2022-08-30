@@ -63,6 +63,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.together.MainActivity"/>
         </activity>
+        <activity
+            android:name=".ChangePassword"
+            android:parentActivityName=".SettingsActivity"/>
 
         <service
             android:name=".MyFirebaseMessagingService"
