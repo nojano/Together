@@ -12,9 +12,9 @@ class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.View
     private var titles = fillTitleArray(res)
     private var descriptions = fillDescriptionArray(res)
     private var cities = fillCityArray(res)
-    private var membersAlreadyIns = fillmembersAlreadyInArray(res)
+    private var membersAlreadyIns = fillMembersAlreadyInArray(res)
     private var membersWeNeeds = fillMembersWeNeedArray(res)
-
+    private var ownerNickname = fillOwnerNicknameArray(res)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapterHomepage.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_homepagecard, parent, false)
         return ViewHolder(v)
@@ -26,6 +26,7 @@ class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.View
         holder.city.text = cities[position]
         holder.membersAlreadyIn.text = membersAlreadyIns[position]
         holder.membersWeNeed.text = membersWeNeeds[position]
+        holder.nickname.text = ownerNickname[position]
     }
 
     override fun getItemCount(): Int {

@@ -19,11 +19,13 @@ data class Post(var postID : String,
                 var description: String,
                 var city: String,
                 var ownerUser: String,
+                var ownerNickname: String,
                 var neededMembers: String,
                 var membersAlreadyIn: String
 )
 
 fun fillPost(postActivity: NewPostActivity):Post {
+    val ownerNickname = myUserProfile[1]
     val spinner = postActivity.findViewById<EditText>(R.id.newPostSpinnerCategory) as Spinner
     val category = spinner.selectedItem.toString()
     val title = postActivity.findViewById<EditText>(R.id.newPostTitle).text.toString()
@@ -31,12 +33,13 @@ fun fillPost(postActivity: NewPostActivity):Post {
     val city = postActivity.findViewById<EditText>(R.id.newPostCity).text.toString()
     val membersAlreadyIn = postActivity.findViewById<EditText>(R.id.newPostMembersAlreadyIn).text.toString()
     val neededMembers = postActivity.findViewById<EditText>(R.id.newPostNeededMembers).text.toString()
-    return Post("", category,title,description,city, FirebaseAuth.getInstance().currentUser!!.uid, membersAlreadyIn, neededMembers)
+    return Post("", category,title,description,city, FirebaseAuth.getInstance().currentUser!!.uid, ownerNickname , membersAlreadyIn, neededMembers)
 }
 
 fun hashPost(post : Post) : HashMap<String, String> {
     return hashMapOf(
         "OwnerUser" to post.ownerUser,
+        "OwnerNickname" to post.ownerNickname,
         "Category" to post.category,
         "Title" to post.title,
         "City" to post.city,
@@ -88,6 +91,7 @@ fun deserializePost(document : QueryDocumentSnapshot): Post{
     var description = ""
     var city = ""
     var ownerUser = ""
+    var ownerNickname = ""
     var neededMembers = ""
     var membersAlreadyIn = ""
     for(a in document.data){
@@ -97,14 +101,15 @@ fun deserializePost(document : QueryDocumentSnapshot): Post{
             "Description" -> description = a.value.toString()
             "City" -> city = a.value.toString()
             "OwnerUser" -> ownerUser = a.value.toString()
+            "OwnerNickname" -> ownerNickname = a.value.toString()
             "NeededMembers" -> neededMembers = a.value.toString()
             "MembersAlreadyIn" -> membersAlreadyIn = a.value.toString()
         }
     }
-    return Post(postID, category,title, description, city, ownerUser, neededMembers, membersAlreadyIn)
+    return Post(postID, category,title, description, city, ownerUser, ownerNickname,  neededMembers, membersAlreadyIn)
 }
 
-
+//TODO use only one method
 fun fillTitleArray(list : MutableList<Post>): Array<String>{
     val array = Array(list.size) { "it = $it" }
     for (i in 0 until res.size){
@@ -126,7 +131,7 @@ fun fillCityArray(list : MutableList<Post>): Array<String>{
     }
     return array
 }
-fun fillmembersAlreadyInArray(list : MutableList<Post>): Array<String> {
+fun fillMembersAlreadyInArray(list : MutableList<Post>): Array<String> {
     val array = Array(list.size) { "it = $it" }
     for (i in 0 until res.size){
         array[i] = res[i].membersAlreadyIn
@@ -142,4 +147,11 @@ fun fillMembersWeNeedArray(list : MutableList<Post>): Array<String> {
     return array
 }
 
+fun fillOwnerNicknameArray(list : MutableList<Post>): Array<String> {
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until res.size){
+        array[i] = res[i].ownerNickname
+    }
+    return array
+}
 
