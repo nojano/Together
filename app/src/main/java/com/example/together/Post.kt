@@ -5,17 +5,20 @@ import android.widget.EditText
 import android.widget.Spinner
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
-class Post(var category: String,
-           var title: String,
-           var description: String,
-           var city: String,
-           var ownerUser: String,
-           var neededMembers: String,
-           var membersAlreadyIn: String
+const val TAG = "Post_Class"
+var res = mutableListOf<Post>()
+data class Post(var category: String,
+                var title: String,
+                var description: String,
+                var city: String,
+                var ownerUser: String,
+                var neededMembers: String,
+                var membersAlreadyIn: String
 )
 
 fun fillPost(postActivity: NewPostActivity):Post {
@@ -51,29 +54,89 @@ fun publishPost(db: FirebaseFirestore, post: Post) : Boolean{
     db.collection("post")
         .add(hashedPost)
         .addOnSuccessListener { documentReference ->
-            Log.d("post_Class", "DocumentSnapshot added with ID: ${documentReference.id}")
+            Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
         }
         .addOnFailureListener { e ->
-            Log.w("post_Class", "Error adding document (newPost)", e)
+            Log.w(TAG, "Error adding document (newPost)", e)
             success= false
         }
     return success
 }
 
 fun getPost() {
-    var db = FirebaseFirestore.getInstance()
-    var res = mutableListOf<Post>()
-    var a = db.collection("post").get().addOnSuccessListener { documents ->
+    val db = FirebaseFirestore.getInstance()
+    db.collection("post").orderBy("date").get().addOnSuccessListener { documents ->
         for (document in documents) {
-            Log.d("post._Class", "${document.id} => ${document.data}")
-            var a = document.data
+            Log.d(TAG, "${document.id} => ${document.data}")
+            res.add(deserializePost(document.data))
+
         }
+        Log.d(TAG, res[0].description)
     }
         .addOnFailureListener { exception ->
-            Log.w("post_Class", "Error getting documents: ", exception)
-        }.toString()
-    return
+            Log.w(TAG, "Error getting documents: ", exception)
+        }
+    Log.w(TAG, "Error getting documents: ")
 }
 
+fun deserializePost(document : Map<String,Any>): Post{
+    var category = ""
+    var title = ""
+    var description = ""
+    var city = ""
+    var ownerUser = ""
+    var neededMembers = ""
+    var membersAlreadyIn = ""
+    for(a in document){
+        when(a.key){
+            "Category" -> category = a.value.toString()
+            "Title" -> title = a.value.toString()
+            "Description" -> description = a.value.toString()
+            "City" -> city = a.value.toString()
+            "OwnerUser" -> ownerUser = a.value.toString()
+            "NeededMembers" -> neededMembers = a.value.toString()
+            "MembersAlreadyIn" -> membersAlreadyIn = a.value.toString()
+        }
+    }
+    return Post(category,title, description, city, ownerUser, neededMembers, membersAlreadyIn)
+}
+
+
+fun fillTitleArray(list : MutableList<Post>): Array<String>{
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until res.size){
+        array[i] = res[i].title
+    }
+    return array
+}
+fun fillDescriptionArray(list : MutableList<Post>): Array<String>{
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until res.size){
+        array[i] = res[i].description
+    }
+    return array
+}
+fun fillCityArray(list : MutableList<Post>): Array<String>{
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until res.size){
+        array[i] = res[i].city
+    }
+    return array
+}
+fun fillmembersAlreadyInArray(list : MutableList<Post>): Array<String> {
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until res.size){
+        array[i] = res[i].membersAlreadyIn
+    }
+    return array
+}
+
+fun fillMembersWeNeedArray(list : MutableList<Post>): Array<String> {
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until res.size){
+        array[i] = res[i].neededMembers
+    }
+    return array
+}
 
 

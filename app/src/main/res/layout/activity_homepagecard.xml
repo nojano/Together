@@ -72,8 +72,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cardtextnumberavailable"
-            android:text="available places:"
+            android:id="@+id/cardNeededMembers"
+            android:text="Needed members:"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             card_view:layout_constraintTop_toBottomOf="@id/carddescription"
@@ -84,22 +84,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cardnumberavailable"
+            android:id="@+id/neededMembers"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             card_view:layout_constraintTop_toBottomOf="@id/carddescription"
-            card_view:layout_constraintLeft_toRightOf="@id/cardtextnumberavailable"
+            card_view:layout_constraintLeft_toRightOf="@id/cardNeededMembers"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cardtextmaxnumber"
-            android:text="number of places:"
+            android:id="@+id/cardMembersAlreadyIn"
+            android:text="Members already in:"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/cardtextnumberavailable"
+            android:layout_marginTop="15dp"
+            card_view:layout_constraintTop_toBottomOf="@id/cardNeededMembers"
             card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
             android:textSize="15sp"
             android:textColor="@color/white"/>
@@ -107,11 +107,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cardmaxplaces"
+            android:id="@+id/membersAlreadyIn"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@id/cardtextnumberavailable"
-            card_view:layout_constraintLeft_toRightOf="@id/cardtextmaxnumber"
+            card_view:layout_constraintTop_toBottomOf="@id/cardNeededMembers"
+            card_view:layout_constraintLeft_toRightOf="@id/cardMembersAlreadyIn"
             android:textSize="15sp"
             android:textColor="@color/white"/>
 

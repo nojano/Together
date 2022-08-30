@@ -1,13 +1,14 @@
 package com.example.together
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.together.databinding.FragmentHomePageBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -24,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
         val loginButton:Button = findViewById(R.id.loginbtn)
         loginButton.setOnClickListener {
+            getPost()
             when {
                 TextUtils.isEmpty(
                     findViewById<EditText>(R.id.username).text.toString().trim { it <= ' ' }) -> {
@@ -98,6 +100,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         //start te Listener for the EnterKey on the password field
-        startEnterKeyListener(findViewById<EditText>(R.id.password), loginButton)
+        startEnterKeyListener(findViewById(R.id.password), loginButton)
     }
 }
+
