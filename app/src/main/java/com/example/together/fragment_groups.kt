@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
+import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayout
 
@@ -26,9 +27,9 @@ class fragment_groups : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val viewPager = view.findViewById<View>(R.id.pager)
-        val tabLayout : View? = view.findViewById(R.id.tab_layout)
-        //tabLayout.setupViewPager(viewPager)
+        val viewPager: ViewPager = view.findViewById(R.id.pager)
+        val tabLayout : TabLayout = view.findViewById(R.id.tab_layout)
+        tabLayout.setupWithViewPager(viewPager)
 
         //Setup the toolbar
         val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
