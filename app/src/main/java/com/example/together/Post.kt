@@ -6,13 +6,15 @@ import android.widget.Spinner
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 const val TAG = "Post_Class"
 var res = mutableListOf<Post>()
-data class Post(var category: String,
+data class Post(var postID : String,
+                var category: String,
                 var title: String,
                 var description: String,
                 var city: String,
@@ -29,7 +31,7 @@ fun fillPost(postActivity: NewPostActivity):Post {
     val city = postActivity.findViewById<EditText>(R.id.newPostCity).text.toString()
     val membersAlreadyIn = postActivity.findViewById<EditText>(R.id.newPostMembersAlreadyIn).text.toString()
     val neededMembers = postActivity.findViewById<EditText>(R.id.newPostNeededMembers).text.toString()
-    return Post(category,title,description,city, FirebaseAuth.getInstance().currentUser!!.uid, membersAlreadyIn, neededMembers)
+    return Post("", category,title,description,city, FirebaseAuth.getInstance().currentUser!!.uid, membersAlreadyIn, neededMembers)
 }
 
 fun hashPost(post : Post) : HashMap<String, String> {
@@ -64,12 +66,12 @@ fun publishPost(db: FirebaseFirestore, post: Post) : Boolean{
 }
 
 fun getPost() {
+    res = mutableListOf()
     val db = FirebaseFirestore.getInstance()
     db.collection("post").orderBy("date").get().addOnSuccessListener { documents ->
         for (document in documents) {
             Log.d(TAG, "${document.id} => ${document.data}")
-            res.add(deserializePost(document.data))
-
+            res.add(deserializePost(document))
         }
         Log.d(TAG, res[0].description)
     }
@@ -79,7 +81,8 @@ fun getPost() {
     Log.w(TAG, "Error getting documents: ")
 }
 
-fun deserializePost(document : Map<String,Any>): Post{
+fun deserializePost(document : QueryDocumentSnapshot): Post{
+    val postID = document.id
     var category = ""
     var title = ""
     var description = ""
@@ -87,7 +90,7 @@ fun deserializePost(document : Map<String,Any>): Post{
     var ownerUser = ""
     var neededMembers = ""
     var membersAlreadyIn = ""
-    for(a in document){
+    for(a in document.data){
         when(a.key){
             "Category" -> category = a.value.toString()
             "Title" -> title = a.value.toString()
@@ -98,7 +101,7 @@ fun deserializePost(document : Map<String,Any>): Post{
             "MembersAlreadyIn" -> membersAlreadyIn = a.value.toString()
         }
     }
-    return Post(category,title, description, city, ownerUser, neededMembers, membersAlreadyIn)
+    return Post(postID, category,title, description, city, ownerUser, neededMembers, membersAlreadyIn)
 }
 
 
