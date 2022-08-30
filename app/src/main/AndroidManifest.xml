@@ -10,24 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Together">
         <activity
+            android:name=".ChangePassword"
+            android:exported="false"
+            android:parentActivityName=".SettingsActivity"/>
+        <activity
             android:name=".RegistrationActivity"
             android:exported="false"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".NewPostActivity"
             android:exported="false"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName="com.example.together.MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateHidden">
 
-        <!-- Parent activity meta-data to support 4.0 and lower -->
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.together.MainActivity"/>
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.together.MainActivity" />
         </activity>
         <activity
             android:name=".ForgotPasswordActivity"
@@ -44,14 +47,13 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:parentActivityName="com.example.together.MainActivity" >
+            android:parentActivityName=".MainActivity">
 
-            <!--Parent activity meta-data to support 4.0 and lower-->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.together.MainActivity"/>
+                android:value="com.example.together.MainActivity" />
         </activity>
-
     </application>
 
 </manifest>

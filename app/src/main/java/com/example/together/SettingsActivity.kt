@@ -28,10 +28,19 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
 
+        //Display user email
         val userEmail = FirebaseAuth.getInstance().currentUser?.email.toString()
         val emailPreference: Preference? = findPreference("email")
         emailPreference?.summary = userEmail
 
+        //Handle change password
+        val passwordPreference: Preference? = findPreference("password")
+        passwordPreference?.setOnPreferenceClickListener {
+            startActivity(Intent(activity, ChangePassword::class.java))
+            true
+        }
+
+        //Handle logout
         val logoutPreference: Preference? = findPreference("logout")
         logoutPreference?.setOnPreferenceClickListener {
             FirebaseAuth.getInstance().signOut()

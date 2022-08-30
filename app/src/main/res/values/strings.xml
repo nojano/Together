@@ -45,5 +45,9 @@
     <string name="logout">Logout</string>
     <string name="edit">Edit</string>
     <string name="save">Save</string>
+    <string name="update_password">Update Password</string>
+    <string name="repeat_new_password">Repeat new password</string>
+    <string name="new_password">New password</string>
+    <string name="current_password">Current password</string>
 
 </resources>
