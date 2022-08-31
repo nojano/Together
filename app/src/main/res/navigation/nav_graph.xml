@@ -8,14 +8,22 @@
     <fragment
         android:id="@+id/homePageFragment"
         android:name="com.example.together.HomePageFragment"
-        android:label="HomePage" />
+        android:label="HomePage"
+        tools:layout="@layout/fragment_home_page"/>
     <fragment
         android:id="@+id/myProfileFragment"
         android:name="com.example.together.MyProfileFragment"
-        android:label="MyProfile" />
+        android:label="MyProfile"
+        tools:layout="@layout/fragment_my_profile"/>
     <fragment
-        android:id="@+id/fragment_groups"
-        android:name="com.example.together.fragment_groups"
-        android:label="fragment_groups"
-        tools:layout="@layout/fragment_groups" />
+        android:id="@+id/groupsCreatedFragment"
+        android:name="com.example.together.GroupsCreatedFragment"
+        android:label="groups_created"
+        tools:layout="@layout/fragment_groups_created" />
+    <fragment
+        android:id="@+id/groupsJoinedFragment"
+        android:name="com.example.together.GroupsJoinedFragment"
+        android:label="GroupsJoinedFragment"
+        tools:layout="@layout/fragment_groups_joined"/>
+
 </navigation>

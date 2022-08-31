@@ -49,5 +49,6 @@
     <string name="repeat_new_password">Repeat new password</string>
     <string name="new_password">New password</string>
     <string name="current_password">Current password</string>
+    <string name="groups_joined">Groups Joined</string>
 
 </resources>
