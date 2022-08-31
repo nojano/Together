@@ -1,7 +1,6 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -44,13 +43,14 @@
             android:layout_marginTop="8dp"
             card_view:layout_constraintTop_toBottomOf="@id/cardnickname"
             card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="236dp"
             android:layout_height="wrap_content"
             android:id="@+id/cardtitle"
+            android:maxLines = "2"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             card_view:layout_constraintTop_toBottomOf="@id/cardcity"
@@ -64,6 +64,7 @@
             android:id="@+id/carddescription"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:maxLines = "8"
             card_view:layout_constraintTop_toBottomOf="@id/cardtitle"
             card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
             android:textSize="15sp"
@@ -114,14 +115,6 @@
             card_view:layout_constraintLeft_toRightOf="@id/cardMembersAlreadyIn"
             android:textSize="15sp"
             android:textColor="@color/white"/>
-
-
-
-
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     
