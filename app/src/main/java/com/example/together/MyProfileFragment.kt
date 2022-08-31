@@ -55,8 +55,17 @@ class MyProfileFragment : Fragment() {
         }
 
 
-        val tvUserNameSurname = binding.namesurname
-        tvUserNameSurname.text = myUserProfile.name
+        val tvUserName = binding.name
+        tvUserName.text = myUserProfile.name
+        val tvUserDescription = binding.description
+        tvUserDescription.text = myUserProfile.description
+        val tvUserGender = binding.gender
+        tvUserGender.text = "Gender: " + myUserProfile.gender
+        val tvUserAge = binding.age
+        tvUserAge.text = "Age: " + myUserProfile.age
+        val tvUserCity = binding.city
+        tvUserCity.text = "City: " + myUserProfile.city
+
 
     }
 
