@@ -9,9 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +19,8 @@ class RegistrationActivity : AppCompatActivity() {
 
         val signupButton: Button = findViewById(R.id.signupbtndone)
         signupButton.setOnClickListener {
-
+            //Update the post in the homepage
+            getPost()
             when {
                 TextUtils.isEmpty(
                     findViewById<EditText>(R.id.email).text.toString().trim { it <= ' ' }) -> {
@@ -68,8 +66,8 @@ class RegistrationActivity : AppCompatActivity() {
                                 //fill the myUserProfile global class
                                 setMyProfileUser(this@RegistrationActivity)
 
+                                //register the user on Firebase Authenticator and on the Firestore Database
                                 registerUser(task, getHashedUser())
-                                //firebase registered user
 
                                 Toast.makeText(
                                     this@RegistrationActivity,
@@ -79,7 +77,6 @@ class RegistrationActivity : AppCompatActivity() {
                                 Log.d(tag, "createUserWithEmail:success")
 
                                 //User is registered and so logged in, we send him to the homepage
-                                getPost()
                                 val intent = Intent(
                                     this@RegistrationActivity,
                                     MainActivity::class.java
@@ -102,7 +99,7 @@ class RegistrationActivity : AppCompatActivity() {
             }
         }
 
-        //startEnterKeyListener(findViewById<EditText>(R.id.telephonenumber), signupButton)
+        startEnterKeyListener(findViewById(R.id.description), signupButton)
 
     }
 }
