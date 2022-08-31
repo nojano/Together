@@ -10,14 +10,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-var myUserProfile = User("", "", "", "", "", "")
+var myUserProfile = User("", "", "", "", "", "", "" ,"")
 
 data class User(var userID : String,
-                var username : String,
-                var nameAndSurname : String,
-                var phoneNumber : String,
+                var name : String,
+                var surname : String,
                 var email : String,
-                var city : String
+                var city : String,
+                var gender : String,
+                var age : String,
+                var description : String
 )
 
 fun updateMyUserProfile() {
@@ -30,11 +32,13 @@ fun updateMyUserProfile() {
         if(document.data != null) {
             for (a in document.data!!) {
                 when (a.key) {
-                    "username" -> myUserProfile.username = a.value.toString()
-                    "nameAndSurname" -> myUserProfile.nameAndSurname = a.value.toString()
-                    "phoneNumber" -> myUserProfile.phoneNumber = a.value.toString()
+                    "name" -> myUserProfile.name = a.value.toString()
+                    "surname" -> myUserProfile.surname = a.value.toString()
                     "email" -> myUserProfile.email = a.value.toString()
                     "city" -> myUserProfile.city = a.value.toString()
+                    "gender" -> myUserProfile.gender = a.value.toString()
+                    "age" -> myUserProfile.age = a.value.toString()
+                    "description" -> myUserProfile.description = a.value.toString()
                 }
             }
         }
@@ -66,20 +70,24 @@ fun registerUser(task : Task<AuthResult>, hashedUser : HashMap<String, String>){
 //returns the HashMap document of the User class ready to be inserted into user collection
 fun getHashedUser(): HashMap<String, String> {
     return hashMapOf(
-        "nameAndSurname" to myUserProfile.nameAndSurname,
-        "username" to myUserProfile.username,
+        "name" to myUserProfile.name,
+        "surname" to myUserProfile.surname,
         "email" to myUserProfile.email,
         "city" to myUserProfile.city,
-        "phoneNumber" to myUserProfile.phoneNumber
+        "gender" to myUserProfile.gender,
+        "age" to myUserProfile.age,
+        "description" to myUserProfile.description
     )
 }
 
 //takes the user info inserted in RegistrationActivity and sets myUserProfile instance
 fun setMyProfileUser(registrationActivity : RegistrationActivity) {
-    val username = (registrationActivity.findViewById(R.id.username) as EditText).text.toString()
-    val nameAndSurname = (registrationActivity.findViewById(R.id.namesurname) as EditText).text.toString()
-    val phoneNumber = (registrationActivity.findViewById(R.id.telephonenumber) as EditText).text.toString()
+    val name = (registrationActivity.findViewById(R.id.name) as EditText).text.toString()
+    val surname = (registrationActivity.findViewById(R.id.surname) as EditText).text.toString()
+    val gender = (registrationActivity.findViewById(R.id.gender) as EditText).text.toString()
     val email = (registrationActivity.findViewById(R.id.email) as EditText).text.toString()
     val city = (registrationActivity.findViewById(R.id.city) as EditText).text.toString()
-    myUserProfile = User("", username, nameAndSurname, phoneNumber, email, city)
+    val age = (registrationActivity.findViewById(R.id.age) as EditText).text.toString()
+    val description = (registrationActivity.findViewById(R.id.description) as EditText).text.toString()
+    myUserProfile = User("", name, surname, email, city, gender, age, description)
 }

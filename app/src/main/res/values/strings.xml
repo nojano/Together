@@ -24,13 +24,13 @@
 
     <string name="sign_up">Sign up</string>
     <string name="app_logo">App_Logo</string>
-    <string name="name_and_surname">Name and Surname</string>
+    <string name="name">Name</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="repeat_the_password">Repeat the password</string>
     <string name="phone_number_facultative">Phone number (facultative)</string>
-    <string name="city">City</string>
+    <string name="city">City:</string>
     <string name="sign_in">Sign in</string>
     <string name="username_or_email_address">Username or email address</string>
     <string name="login">Login</string>
@@ -50,5 +50,11 @@
     <string name="new_password">New password</string>
     <string name="current_password">Current password</string>
     <string name="groups_joined">Groups Joined</string>
+    <string name="description">Description</string>
+    <string name="gender">Gender:</string>
+    <string name="avatar_of_the_user">Avatar of the user</string>
+    <string name="cover_profile_page">Cover profile page</string>
+    <string name="age">Age:</string>
+    <string name="surname">Surname</string>
 
 </resources>

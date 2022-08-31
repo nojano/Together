@@ -11,7 +11,7 @@ import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
-const val TAG = "Post_Class"
+private const val TAG = "Post_Class"
 var res = mutableListOf<Post>()
 data class Post(var postID : String,
                 var category: String,
@@ -25,7 +25,7 @@ data class Post(var postID : String,
 )
 
 fun fillPost(postActivity: NewPostActivity):Post {
-    val ownerNickname = myUserProfile[1]
+    val ownerNickname = myUserProfile.name
     val spinner = postActivity.findViewById<EditText>(R.id.newPostSpinnerCategory) as Spinner
     val category = spinner.selectedItem.toString()
     val title = postActivity.findViewById<EditText>(R.id.newPostTitle).text.toString()

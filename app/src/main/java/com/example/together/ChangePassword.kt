@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
-const val TAG = "ChangePasswordActivity"
+private const val TAG = "ChangePasswordActivity"
 
 class ChangePassword : AppCompatActivity() {
 

@@ -45,7 +45,7 @@
             android:contentDescription="@string/app_logo" />
 
         <EditText
-            android:id="@+id/namesurname"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -55,7 +55,7 @@
             android:background="#30ffffff"
             android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="20dp"
-            android:hint="@string/name_and_surname"
+            android:hint="@string/name"
             android:inputType="text"
             android:padding="20dp"
             android:textColor="@color/white"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@id/signuptitle" />
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -75,12 +75,12 @@
             android:background="#30ffffff"
             android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="20dp"
-            android:hint="@string/username"
+            android:hint="@string/surname"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/namesurname"
+            app:layout_constraintTop_toBottomOf="@id/name"
             android:autofillHints=""
             android:inputType="text" />
 
@@ -101,7 +101,7 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/username"
+            app:layout_constraintTop_toBottomOf="@id/surname"
             android:autofillHints="" />
 
         <EditText
@@ -145,7 +145,7 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/telephonenumber"
+            android:id="@+id/gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -153,10 +153,9 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="#30ffffff"
-            android:drawableStart="@drawable/ic_baseline_phone_24"
+            android:drawableStart="@drawable/ic_baseline_person_24"
             android:drawablePadding="20dp"
-            android:hint="@string/phone_number_facultative"
-            android:inputType="phone"
+            android:hint="@string/gender"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -184,6 +183,46 @@
             android:autofillHints=""
             android:inputType="text" />
 
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#30ffffff"
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"
+            android:hint="@string/age"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gender"
+            android:autofillHints=""
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#30ffffff"
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"
+            android:hint="@string/description"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/age"
+            android:autofillHints=""
+            android:inputType="text" />
+
         <Button
             android:id="@+id/signupbtndone"
             android:layout_width="wrap_content"
@@ -197,7 +236,7 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/telephonenumber" />
+            app:layout_constraintTop_toBottomOf="@id/description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -102,7 +102,7 @@ class RegistrationActivity : AppCompatActivity() {
             }
         }
 
-        startEnterKeyListener(findViewById<EditText>(R.id.telephonenumber), signupButton)
+        //startEnterKeyListener(findViewById<EditText>(R.id.telephonenumber), signupButton)
 
     }
 }

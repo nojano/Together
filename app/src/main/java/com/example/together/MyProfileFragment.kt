@@ -56,7 +56,7 @@ class MyProfileFragment : Fragment() {
 
 
         val tvUserNameSurname = binding.namesurname
-        tvUserNameSurname.text = myUserProfile.username
+        tvUserNameSurname.text = myUserProfile.name
 
     }
 
