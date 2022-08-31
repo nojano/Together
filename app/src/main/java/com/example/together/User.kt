@@ -11,6 +11,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 var myUserProfile = User("", "", "", "", "", "", "" ,"")
+private const val TAG = "User_Class"
 
 data class User(var userID : String,
                 var name : String,
@@ -50,17 +51,16 @@ fun updateMyUserProfile() {
 }
 
 fun registerUser(task : Task<AuthResult>, hashedUser : HashMap<String, String>){
-    val tag = "User_Class"
     val db = Firebase.firestore
     val firebaseUser: FirebaseUser = task.result!!.user!!
 
     // Add a new document with the same ID of the firebase user ID
     db.collection("user").document(firebaseUser.uid).set(hashedUser)
         .addOnSuccessListener {
-            Log.d(tag, "DocumentSnapshot successfully written!")
+            Log.d(TAG, "DocumentSnapshot successfully written!")
         }
         .addOnFailureListener { e ->
-            Log.w(tag, "Error adding document", e)
+            Log.w(TAG, "Error adding document", e)
         }
 
     //insert the userID into the myUserProfile class

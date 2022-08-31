@@ -28,16 +28,13 @@ class NewPostActivity : AppCompatActivity() {
 
         //set the spinner
         val categorySpinner: Spinner = findViewById(R.id.newPostSpinnerCategory)
-        setCategoryOnSpinner(categorySpinner, this)
-
-
-        val db = Firebase.firestore
+        setCategoryOnSpinner(categorySpinner, this@NewPostActivity)
 
         val submitButton: Button = findViewById(R.id.newPostPublishButton)
         submitButton.setOnClickListener {
             if (checkPostForm(this@NewPostActivity)) {
                 val post = fillPost(this@NewPostActivity)
-                if (publishPost(db, post)) {
+                if (publishPost(Firebase.firestore, post)) {
                     Toast.makeText(
                         this@NewPostActivity,
                         "Post Published",

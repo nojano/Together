@@ -76,7 +76,6 @@ fun getPost() {
             Log.d(TAG, "${document.id} => ${document.data}")
             res.add(deserializePost(document))
         }
-        Log.d(TAG, res[0].description)
     }
         .addOnFailureListener { exception ->
             Log.w(TAG, "Error getting documents: ", exception)
