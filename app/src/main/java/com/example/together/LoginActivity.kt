@@ -13,15 +13,6 @@ import com.example.together.databinding.FragmentHomePageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-
-val myUserProfile = Array(6) { "it = $it" }
-//0 -> ID
-//1 -> username
-//2 -> nameAndSurname
-//3 -> phoneNumber
-//4 -> email
-//5 -> city
-
 class LoginActivity : AppCompatActivity() {
 
     private var _binding: FragmentHomePageBinding? = null
@@ -117,25 +108,4 @@ class LoginActivity : AppCompatActivity() {
     }
 }
 
-fun updateMyUserProfile() {
-    val docRef = FirebaseFirestore.getInstance().collection("users")
-        .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
-    docRef.get().addOnSuccessListener { documents ->
-        if(documents.data != null) {
-            for (a in documents.data!!) {
-                when (a.key) {
-                    "username" -> myUserProfile[1] = a.value.toString()
-                    "nameAndSurname" -> myUserProfile[2] = a.value.toString()
-                    "phoneNumber" -> myUserProfile[3] = a.value.toString()
-                    "email" -> myUserProfile[4] = a.value.toString()
-                    "city" -> myUserProfile[5] = a.value.toString()
-                }
-            }
-        }
-        Log.d(TAG, res[0].description)
-    }
-        .addOnFailureListener { exception ->
-            Log.w(TAG, "Error getting documents: ", exception)
-        }
-    Log.w(TAG, "Error getting documents: ")
-}
+

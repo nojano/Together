@@ -53,7 +53,7 @@ class MyProfileFragment : Fragment() {
 
 
         val tvUserNameSurname = binding.namesurname
-        tvUserNameSurname.text = myUserProfile[1]
+        tvUserNameSurname.text = myUserProfile.username
 
         //Logout from the application
         val btnLogout = binding.logoutbtn
