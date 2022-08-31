@@ -16,13 +16,13 @@
         android:label="MyProfile"
         tools:layout="@layout/fragment_my_profile"/>
     <fragment
-        android:id="@+id/groupsCreatedFragment"
-        android:name="com.example.together.GroupsCreatedFragment"
+        android:id="@+id/postsCreatedFragment"
+        android:name="com.example.together.PostsCreatedFragment"
         android:label="groups_created"
         tools:layout="@layout/fragment_groups_created" />
     <fragment
-        android:id="@+id/groupsJoinedFragment"
-        android:name="com.example.together.GroupsJoinedFragment"
+        android:id="@+id/postsJoinedFragment"
+        android:name="com.example.together.PostsJoinedFragment"
         android:label="GroupsJoinedFragment"
         tools:layout="@layout/fragment_groups_joined"/>
 

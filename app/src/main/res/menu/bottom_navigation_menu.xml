@@ -5,12 +5,12 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home"/>
     <item
-        android:id="@+id/groupsCreatedFragment"
+        android:id="@+id/postsCreatedFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_groups_24"
         android:title="@string/my_groups"/>
     <item
-        android:id="@+id/groupsJoinedFragment"
+        android:id="@+id/postsJoinedFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_group_add_24"
         android:title="@string/groups_joined"/>

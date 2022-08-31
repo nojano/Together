@@ -6,18 +6,17 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.together.databinding.FragmentGroupsCreatedBinding
-import com.example.together.databinding.FragmentHomePageBinding
+import com.example.together.databinding.FragmentGroupsJoinedBinding
 
 
-class GroupsCreatedFragment : Fragment() {
+class PostsJoinedFragment : Fragment() {
 
-    private var _binding: FragmentGroupsCreatedBinding? = null
+    private var _binding: FragmentGroupsJoinedBinding? = null
     private val binding get() = _binding!!
-    private lateinit var recyclerViewCreatedGroups: RecyclerView
+    private lateinit var recyclerViewJoinedPosts: RecyclerView
 
     private var layoutmanager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<RecycleAdapterCreatedPosts.ViewHolder>? = null
+    private var adapter: RecyclerView.Adapter<RecycleAdapterJoinedPosts.ViewHolder>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,18 +29,18 @@ class GroupsCreatedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentGroupsCreatedBinding.inflate(inflater, container, false)
+        _binding = FragmentGroupsJoinedBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerViewCreatedGroups = binding.recyclerViewPostCreated
+        recyclerViewJoinedPosts = binding.recyclerViewPostJoined
 
         layoutmanager = LinearLayoutManager(this.context)
-        recyclerViewCreatedGroups.layoutManager = layoutmanager
+        recyclerViewJoinedPosts.layoutManager = layoutmanager
 
-        adapter = RecycleAdapterCreatedPosts()
-        recyclerViewCreatedGroups.adapter = adapter
+        adapter = RecycleAdapterJoinedPosts()
+        recyclerViewJoinedPosts.adapter = adapter
 
         //Setup the toolbar
         binding.toolbar.inflateMenu(R.menu.homepage_toolbar)
