@@ -17,13 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
-        
+
         <ImageView
             android:id="@+id/cardprofilepic"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintLeft_toLeftOf="parent"/>
+            android:layout_width="38dp"
+            android:layout_height="31dp"
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/cardnickname"
@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/membersAlreadyIn"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
             card_view:layout_constraintTop_toBottomOf="@id/cardNeededMembers"
             card_view:layout_constraintLeft_toRightOf="@id/cardMembersAlreadyIn"
             android:textSize="15sp"
