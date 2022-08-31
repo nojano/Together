@@ -10,12 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Together">
+        <activity
+            android:name=".MyProfileEditActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/app_logo" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/davide" />
@@ -23,28 +29,26 @@
         <activity
             android:name=".RegistrationActivity"
             android:exported="false"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".NewPostActivity"
             android:exported="false"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName="com.example.together.MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateHidden">
 
-        <!-- Parent activity meta-data to support 4.0 and lower -->
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.together.MainActivity"/>
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.together.MainActivity" />
         </activity>
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -56,16 +60,16 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:parentActivityName="com.example.together.MainActivity" >
+            android:parentActivityName=".MainActivity">
 
-            <!--Parent activity meta-data to support 4.0 and lower-->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.together.MainActivity"/>
+                android:value="com.example.together.MainActivity" />
         </activity>
         <activity
             android:name=".ChangePassword"
-            android:parentActivityName=".SettingsActivity"/>
+            android:parentActivityName=".SettingsActivity" />
 
         <service
             android:name=".MyFirebaseMessagingService"
@@ -75,7 +79,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

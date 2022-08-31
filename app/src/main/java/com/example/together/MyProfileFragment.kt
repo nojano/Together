@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.together.databinding.FragmentMyProfileBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MyProfileFragment : Fragment() {
     private var _binding: FragmentMyProfileBinding? = null
@@ -54,6 +56,22 @@ class MyProfileFragment : Fragment() {
             }
         }
 
+        binding.buttonEdit.setOnClickListener{
+            val intent = Intent(
+                activity,
+                MyProfileEditActivity::class.java
+            )
+            startActivity(intent)
+        }
+
+        /*val userId = myUserProfile.userID
+        val db = Firebase.firestore
+        val docRef = db.collection("user").document(userId)
+        docRef.get().addOnSuccessListener { document ->
+            if(document != null){
+                binding.city.text = document.data?.getValue("city").toString()
+            }
+        }*/
 
         val tvUserName = binding.name
         tvUserName.text = myUserProfile.name

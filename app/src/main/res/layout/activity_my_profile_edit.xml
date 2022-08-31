@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Profile" />
+            app:title="Edit Profile" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -38,66 +38,70 @@
         app:layout_constraintTop_toBottomOf="@+id/my_appbar"
         app:srcCompat="@drawable/ic_baseline_person_24" />
 
-    <TextView
+    <EditText
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/name"
         android:textAlignment="center"
+        android:textColor="@color/white_secondary"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/userAvatar"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/userAvatar"
         app:layout_constraintTop_toBottomOf="@+id/userAvatar" />
 
-    <TextView
+    <EditText
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/description"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white_secondary"
+        app:layout_constraintEnd_toEndOf="@+id/name"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    <TextView
+    <EditText
         android:id="@+id/gender"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/gender"
-        android:textColor="@color/white"
+        android:textColor="@color/white_secondary"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
-    <TextView
+    <EditText
         android:id="@+id/age"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/age"
-        android:textColor="@color/white"
+        android:textColor="@color/white_secondary"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/gender"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/gender"
         app:layout_constraintTop_toBottomOf="@+id/gender" />
 
-    <TextView
+    <EditText
         android:id="@+id/city"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/city"
-        android:textColor="@color/white"
+        android:textColor="@color/white_secondary"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/age"
         app:layout_constraintHorizontal_bias="0.0"
@@ -105,11 +109,12 @@
         app:layout_constraintTop_toBottomOf="@+id/age" />
 
     <Button
-        android:id="@+id/buttonEdit"
+        android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="@string/edit"
+        android:text="@string/save"
+        android:backgroundTint="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/city" />
