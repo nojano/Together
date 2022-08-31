@@ -1,5 +1,6 @@
 package com.example.together
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
@@ -42,6 +43,14 @@ class NewPostActivity : AppCompatActivity() {
                         "Post Published",
                         Toast.LENGTH_SHORT
                     ).show()
+                    getPost()
+                    val intent = Intent(
+                        this@NewPostActivity,
+                        MainActivity::class.java
+                    )
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
                 }
                 else {
                     Toast.makeText(

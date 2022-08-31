@@ -9,22 +9,29 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.ViewHolder>() {
 
-    private var nicknames = arrayOf("davide", "gianmarco", "alessandro", "nick")
-
+    private var titles = fillTitleArray(res)
+    private var descriptions = fillDescriptionArray(res)
+    private var cities = fillCityArray(res)
+    private var membersAlreadyIns = fillMembersAlreadyInArray(res)
+    private var membersWeNeeds = fillMembersWeNeedArray(res)
+    private var ownerNickname = fillOwnerNicknameArray(res)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapterHomepage.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_homepagecard, parent, false)
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapterHomepage.ViewHolder, position: Int) {
-        holder.nickname.text = nicknames[position]
-
-
+        holder.title.text = titles[position]
+        holder.description.text = descriptions[position]
+        holder.city.text = cities[position]
+        holder.membersAlreadyIn.text = membersAlreadyIns[position]
+        holder.membersWeNeed.text = membersWeNeeds[position]
+        holder.nickname.text = ownerNickname[position]
     }
 
     override fun getItemCount(): Int {
         //it will return the number of items that we pass to the viewholder
-        return nicknames.size
+        return titles.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,8 +41,8 @@ class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.View
         var city: TextView
         var title :TextView
         var description: TextView
-        var availableplaces: TextView
-        var maxplaces: TextView
+        var membersWeNeed: TextView
+        var membersAlreadyIn: TextView
 
         init {
             profilePic = itemView.findViewById(R.id.cardprofilepic)
@@ -43,8 +50,8 @@ class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.View
             city = itemView.findViewById(R.id.cardcity)
             title = itemView.findViewById(R.id.cardtitle)
             description = itemView.findViewById(R.id.carddescription)
-            availableplaces = itemView.findViewById(R.id.cardnumberavailable)
-            maxplaces = itemView.findViewById(R.id.cardmaxplaces)
+            membersWeNeed = itemView.findViewById(R.id.neededMembers)
+            membersAlreadyIn = itemView.findViewById(R.id.membersAlreadyIn)
         }
 
     }

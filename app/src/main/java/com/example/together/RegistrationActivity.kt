@@ -65,8 +65,11 @@ class RegistrationActivity : AppCompatActivity() {
                             //If the registration is successfully done
                             if (task.isSuccessful) {
 
+                                //fill the myUserProfile global class
+                                setMyProfileUser(this@RegistrationActivity)
+
+                                registerUser(task, getHashedUser())
                                 //firebase registered user
-                                val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                 Toast.makeText(
                                     this@RegistrationActivity,
@@ -75,22 +78,8 @@ class RegistrationActivity : AppCompatActivity() {
                                 ).show()
                                 Log.d(tag, "createUserWithEmail:success")
 
-                                //Now we insert the user created in the Firestore Database
-                                //prepare the user instance
-                                val user = getUserAttribute(this@RegistrationActivity)
-
-                                val db = Firebase.firestore
-
-                                // Add a new document with the same ID of the firebase user ID
-                                db.collection("users").document(firebaseUser.uid).set(user)
-                                    .addOnSuccessListener {
-                                        Log.d(tag, "DocumentSnapshot successfully written!")
-                                    }
-                                    .addOnFailureListener { e ->
-                                        Log.w(tag, "Error adding document", e)
-                                    }
-
                                 //User is registered and so logged in, we send him to the homepage
+                                getPost()
                                 val intent = Intent(
                                     this@RegistrationActivity,
                                     MainActivity::class.java
@@ -98,7 +87,8 @@ class RegistrationActivity : AppCompatActivity() {
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 startActivity(intent)
                                 finish()
-                            } else {
+                            }
+                            else {
                                 //If the registration was not successful, then show the error message
                                 Toast.makeText(
                                     this@RegistrationActivity,
@@ -115,16 +105,6 @@ class RegistrationActivity : AppCompatActivity() {
         startEnterKeyListener(findViewById<EditText>(R.id.telephonenumber), signupButton)
 
     }
-}
-
-fun getUserAttribute(registrationActivity: RegistrationActivity): HashMap<String, String> {
-    return hashMapOf(
-        "nameAndSurname" to (registrationActivity.findViewById(R.id.namesurname) as EditText).text.toString(),
-        "username" to (registrationActivity.findViewById(R.id.username) as EditText).text.toString(),
-        "email" to (registrationActivity.findViewById(R.id.email) as EditText).text.toString(),
-        "city" to (registrationActivity.findViewById(R.id.city) as EditText).text.toString(),
-        "phoneNumber" to (registrationActivity.findViewById(R.id.telephonenumber) as EditText).text.toString()
-    )
 }
 
 fun passwordsAreEquals (registrationActivity: RegistrationActivity): Boolean{
