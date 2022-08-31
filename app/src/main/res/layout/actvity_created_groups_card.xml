@@ -1,0 +1,121 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardBackgroundColor="@color/davide"
+    card_view:cardElevation="3dp"
+    card_view:contentPadding="4dp"
+    android:id="@+id/created_groups_card"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/created_groups_cardrelativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/cardprofilepic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/cardnickname"
+            android:layout_width="236dp"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintBaseline_toTopOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@+id/cardprofilepic"
+            android:layout_marginStart="16dp"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="236dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardcity"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintTop_toBottomOf="@id/cardnickname"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
+            android:textSize="11sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="236dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardtitle"
+            android:maxLines = "2"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintTop_toBottomOf="@id/cardcity"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="236dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/carddescription"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:maxLines = "8"
+            card_view:layout_constraintTop_toBottomOf="@id/cardtitle"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardNeededMembers"
+            android:text="Needed members:"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintTop_toBottomOf="@id/carddescription"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/neededMembers"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintTop_toBottomOf="@id/carddescription"
+            card_view:layout_constraintLeft_toRightOf="@id/cardNeededMembers"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardMembersAlreadyIn"
+            android:text="Members already in:"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            card_view:layout_constraintTop_toBottomOf="@id/cardNeededMembers"
+            card_view:layout_constraintLeft_toRightOf="@id/cardprofilepic"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/membersAlreadyIn"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintTop_toBottomOf="@id/cardNeededMembers"
+            card_view:layout_constraintLeft_toRightOf="@id/cardMembersAlreadyIn"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
