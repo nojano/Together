@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -32,14 +34,21 @@ class MyProfileEditActivity : AppCompatActivity() {
 
         val btnEdit = findViewById<Button>(R.id.buttonSave)
         btnEdit.setOnClickListener{
+            myUserProfile.name = etName.text.toString()
+            myUserProfile.description = etDescription.text.toString()
+            myUserProfile.gender = etGender.text.toString()
+            myUserProfile.age = etAge.text.toString()
+            myUserProfile.city = etCity.text.toString()
+
+
             val user = hashMapOf(
                 "name" to myUserProfile.name,
                 "surname" to myUserProfile.surname,
                 "email" to myUserProfile.email,
                 "age" to myUserProfile.age,
                 "gender" to myUserProfile.gender,
-                "city" to etCity.text.toString(),
-            "description" to myUserProfile.description)
+                "city" to myUserProfile.city,
+                "description" to myUserProfile.description)
 
             db.collection("user").document(userId).set(user)
             finish()
