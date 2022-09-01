@@ -77,32 +77,16 @@ fun getPost() {
         for (document in documents) {
             Log.d(TAG, "${document.id} => ${document.data}")
             res.add(deserializePost(document))
+
+            if(document.data.getValue("OwnerUser").toString() == myUserProfile.userID){
+                createdPosts.add(deserializePost(document))
+                Log.d(TAG, "Document ${document.id} added in created posts")
+            }
         }
     }
         .addOnFailureListener { exception ->
             Log.w(TAG, "Error getting documents: ", exception)
         }
-    Log.w(TAG, "Error getting documents: ")
-
-    for (post in res){
-        if (post.ownerUser == myUserProfile.userID){
-            createdPosts.add(post)
-            Log.d(TAG, "Created Post success")
-        }
-    }
-
-    /*db.collection("post").whereEqualTo("ownerUser", myUserProfile.userID).orderBy("date").get().addOnSuccessListener { documents ->
-        for (document in documents) {
-            Log.d(TAG, "${document.id} => ${document.data}")
-            createdPosts.add(deserializePost(document))
-        }
-    }
-        .addOnFailureListener { exception ->
-            Log.w(TAG, "Error getting documents created posts: ", exception)
-        }
-    Log.w(TAG, "Error getting documents created posts: ")
-
-     */
 }
 
 
