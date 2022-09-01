@@ -52,7 +52,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.071"
-                app:srcCompat="@drawable/app_logo" />
+                app:srcCompat="@drawable/app_logo"
+                android:contentDescription="@string/app_logo" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -96,11 +97,13 @@
                 android:layout_height="65dp"
                 android:layout_marginTop="28dp"
                 android:background="@color/white"
-                android:backgroundTint="#FFFFFF"
+                android:backgroundTint="@color/white"
                 android:minHeight="48dp"
+                android:theme="@style/mySpinnerItemStyle"
                 app:layout_constraintEnd_toEndOf="@+id/textView5"
                 app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            <!--android:entries="@array/Category"-->
 
             <TextView
                 android:id="@+id/editTextTextPersonName2"
@@ -230,7 +233,8 @@
                 android:hint="@string/activity_new_post_City"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/newPostDescription"
-                app:layout_constraintTop_toBottomOf="@+id/newPostDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/newPostDescription"
+                android:autofillHints="" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

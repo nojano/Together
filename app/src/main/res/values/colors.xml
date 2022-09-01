@@ -11,4 +11,5 @@
     <color name="davide">#1a012a</color>
     <color name="davide_variant">#402b53</color>
     <color name="white_secondary">#cccccc</color>
+    <color name="hint_color">#607D8B</color>
 </resources>

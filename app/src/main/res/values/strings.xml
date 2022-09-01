@@ -9,6 +9,14 @@
         <item>Other</item>
     </string-array>
 
+    <array name="CateogryArray">
+        <item>Sport</item>
+        <item>Videogames</item>
+        <item>Cinema</item>
+        <item>RPG</item>
+        <item>Other</item>
+    </array>
+
     <string name="logo">logo</string>
     <string name="activity_new_post_create_a_new_post">Create a new post</string>
     <string name="activity_new_post_step_1_choose_a_category">Step 1: Choose a category</string>

@@ -16,4 +16,8 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorSecondary">@color/white_secondary</item>
     </style>
+
+    <style name="mySpinnerItemStyle" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:textColor">@color/hint_color</item>
+    </style>
 </resources>
