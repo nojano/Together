@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecycleAdapterCreatedPosts : RecyclerView.Adapter<RecycleAdapterCreatedPosts.ViewHolder>() {
 
-    private var titles = fillTitleArray(res)
-    private var descriptions = fillDescriptionArray(res)
-    private var cities = fillCityArray(res)
-    private var membersAlreadyIns = fillMembersAlreadyInArray(res)
-    private var membersWeNeeds = fillMembersWeNeedArray(res)
-    private var ownerNickname = fillOwnerNicknameArray(res)
+    private var titles = fillTitleCreatedPosts(createdPosts)
+    private var descriptions = fillDescriptionCreatedPosts(createdPosts)
+    private var cities = fillCityCreatedPosts(createdPosts)
+    private var membersAlreadyIns = fillMembersAlreadyInCreatedPosts(createdPosts)
+    private var membersWeNeeds = fillMembersWeNeedCreatedPosts(createdPosts)
+    private var ownerNickname = fillMembersNickNameCreatedPosts(createdPosts)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecycleAdapterCreatedPosts.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.actvity_created_groups_card, parent, false)
         return ViewHolder(v)
@@ -26,7 +27,8 @@ class RecycleAdapterCreatedPosts : RecyclerView.Adapter<RecycleAdapterCreatedPos
         holder.city.text = cities[position]
         holder.membersAlreadyIn.text = membersAlreadyIns[position]
         holder.membersWeNeed.text = membersWeNeeds[position]
-        holder.nickname.text = ownerNickname[position]
+         holder.nickname.text = ownerNickname[position]
+
     }
 
     override fun getItemCount(): Int {

@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter
 
 private const val TAG = "Post_Class"
 var res = mutableListOf<Post>()
+var createdPosts = mutableListOf<Post>()
 data class Post(var postID : String,
                 var category: String,
                 var title: String,
@@ -70,6 +71,7 @@ fun publishPost(db: FirebaseFirestore, post: Post) : Boolean{
 
 fun getPost() {
     res = mutableListOf()
+    createdPosts = mutableListOf()
     val db = FirebaseFirestore.getInstance()
     db.collection("post").orderBy("date").get().addOnSuccessListener { documents ->
         for (document in documents) {
@@ -81,7 +83,29 @@ fun getPost() {
             Log.w(TAG, "Error getting documents: ", exception)
         }
     Log.w(TAG, "Error getting documents: ")
+
+    for (post in res){
+        if (post.ownerUser == myUserProfile.userID){
+            createdPosts.add(post)
+            Log.d(TAG, "Created Post success")
+        }
+    }
+
+    /*db.collection("post").whereEqualTo("ownerUser", myUserProfile.userID).orderBy("date").get().addOnSuccessListener { documents ->
+        for (document in documents) {
+            Log.d(TAG, "${document.id} => ${document.data}")
+            createdPosts.add(deserializePost(document))
+        }
+    }
+        .addOnFailureListener { exception ->
+            Log.w(TAG, "Error getting documents created posts: ", exception)
+        }
+    Log.w(TAG, "Error getting documents created posts: ")
+
+     */
 }
+
+
 
 fun deserializePost(document : QueryDocumentSnapshot): Post{
     val postID = document.id
@@ -153,4 +177,52 @@ fun fillOwnerNicknameArray(list : MutableList<Post>): Array<String> {
     }
     return array
 }
+
+fun fillTitleCreatedPosts(list : MutableList<Post>): Array<String>{
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until createdPosts.size){
+        array[i] = createdPosts[i].title
+    }
+    return array
+}
+fun fillDescriptionCreatedPosts(list : MutableList<Post>): Array<String>{
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until createdPosts.size){
+        array[i] = createdPosts[i].description
+    }
+    return array
+}
+fun fillCityCreatedPosts(list : MutableList<Post>): Array<String>{
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until createdPosts.size){
+        array[i] = createdPosts[i].city
+    }
+    return array
+}
+fun fillMembersAlreadyInCreatedPosts(list : MutableList<Post>): Array<String> {
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until createdPosts.size){
+        array[i] = createdPosts[i].membersAlreadyIn
+    }
+    return array
+}
+
+fun fillMembersWeNeedCreatedPosts(list : MutableList<Post>): Array<String> {
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until createdPosts.size){
+        array[i] = createdPosts[i].neededMembers
+    }
+    return array
+
+
+    }
+
+fun fillMembersNickNameCreatedPosts(list : MutableList<Post>): Array<String> {
+    val array = Array(list.size) { "it = $it" }
+    for (i in 0 until createdPosts.size) {
+        array[i] = createdPosts[i].ownerNickname
+    }
+    return array
+}
+
 
